@@ -27,6 +27,7 @@ unset fileName
 unset ACTION
 STATUS="Idle"
 Download="MyDownload";
+ACTION_ID=0;
 
 if [[ ! -d "$Download" ]]; then
     mkdir -p "$Download"
@@ -40,15 +41,22 @@ do
     IP=`ifconfig | grep inet | grep -v "127.0.0.1"| sed -n '1p'| awk '{print $2}'|awk -F ':' '{print $2}'`
 
 # report STATUS, IP, NATTYPE... which may be changed.
-    wget --post-data "STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE" http://$MasterIp/action.php -O action.php
+    echo "wget --post-data STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE&ACTION_ID=$ACTION_ID http://$MasterIp/action.php -O action.php"
+
+    wget --post-data "STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE&ACTION_ID=$ACTION_ID" http://$MasterIp/action.php -O action.php
 
 # Resolve ACTION, FILE from action.php returned.
 	ACTION=`cat action.php | grep "ACTION:" | awk -F ":" '{print $2}' | tr -d " "`
+	ACTION_ID=`cat action.php | grep "ACTION_ID:" | awk -F ":" '{print $2}' | tr -d " "`
+	EXTRA=`cat action.php | grep "EXTRA:" | awk -F ":" '{print $2}' | tr -d " "`
     echo "ACTION: $ACTION"
+    echo "ACTION_ID: $ACTION_ID"
+    echo "EXTRA: $EXTRA"
     
     case "$ACTION" in
         "WAIT")
             sleep 5s
+	    STATUS="Idle"
             ;;
         "GET")
             fileName=`cat action.php | grep "FILE:" | awk -F ":" '{print $2}' | tr -d " "`
@@ -90,4 +98,4 @@ do
 done
 
 STATUS="Offline"
-wget --post-data "STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE" http://$MasterIp/action.php -O action.php
+wget --post-data "STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE&ACTION_ID=$ACTION_ID" http://$MasterIp/action.php -O action.php

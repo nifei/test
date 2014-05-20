@@ -12,9 +12,10 @@ function DisposeFileToDevices($db, $fields, $fileName, $NumDevicesRequired)
 	$querySql="select * from DeviceInfo where NATTYPE='$fields' and STATUS in ('Online', 'Idle')";
 	$res=$db->Query($querySql);
 	
-	while($NumDevicesRequired>0 && $row=mysql_fetch_array($res))
+#	while($NumDevicesRequired>0 && $row=mysql_fetch_array($res))
 	{
-		$updateSql="UPDATE DeviceAction SET ACTION='GET', FILE='$fileName' WHERE MAC='$row[MAC]'";
+                $row=mysql_fetch_array($res);
+		$updateSql="UPDATE DeviceAction SET ACTION='GET', FILE='$fileName', STATUS='PENDING' WHERE MAC='$row[MAC]'";
 		$db->Query($updateSql);
 		$NumDevicesRequired--;
 	}
@@ -22,7 +23,7 @@ function DisposeFileToDevices($db, $fields, $fileName, $NumDevicesRequired)
 
 function CheckDisposeDoneWithNatType($db, $fields, $NumDevicesRequired)
 {
-	$querySql="select * from DeviceInfo where NATTYPE='$fields' and STATUS in ('Disposition_OK', 'Disposition_Err')";
+	$querySql="select * from DeviceInfo,DeviceAction where DeviceInfo.MAC=DeviceAction.MAC and DeviceInfo.NATTYPE='$fields' and DeviceAction.STATUS in ('Disposition_OK', 'Disposition_Err')";
 	$res=$db->Query($querySql);
 	$numRes=$db->GetRowsNum($res);
 	
@@ -49,7 +50,7 @@ function EchoDisposeResultsWithNatType($db, $fields, $NumDevicesRequired, $fileN
 		<td align='center'>FileName</td>
 	</tr>";
 
-	$querySql="select DeviceInfo.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceInfo.STATUS in ('Disposition_OK', 'Disposition_Err') and DeviceAction.MAC=DeviceInfo.MAC";
+	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceInfo.STATUS in ('Disposition_OK', 'Disposition_Err') and DeviceAction.MAC=DeviceInfo.MAC";
 	$res=$db->Query($querySql);
 	$numRes=$db->GetRowsNum($res);
 	
@@ -70,14 +71,14 @@ function EchoDisposeResultsWithNatType($db, $fields, $NumDevicesRequired, $fileN
 
 function CtrlDevicesExecuteFile($db, $fileName)
 {
-	$querySql="select DeviceInfo.MAC as mac, DeviceInfo.STATUS, DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceInfo.STATUS='Disposition_OK' and DeviceAction.FILE='$fileName' and DeviceInfo.MAC=DeviceAction.MAC";
+	$querySql="select DeviceInfo.MAC as mac, DeviceAction.STATUS, DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.STATUS='Disposition_OK' and DeviceAction.FILE='$fileName' and DeviceInfo.MAC=DeviceAction.MAC";
 	$res=$db->Query($querySql);
 	$numRes=$db->GetRowsNum($res);
 	echo "numRes: " . $numRes . "<br/>";
 	
 	while($row=mysql_fetch_array($res))
 	{
-		$updateSql="UPDATE DeviceAction SET ACTION='EXECUTE' WHERE MAC='$row[mac]'";
+		$updateSql="UPDATE DeviceAction SET ACTION='EXECUTE', STATUS='PENDING' WHERE MAC='$row[mac]'";
 		$db->Query($updateSql);
 	}
 
@@ -85,11 +86,11 @@ function CtrlDevicesExecuteFile($db, $fileName)
 
 function WaitExecuteDone($db, $fileName)
 {
-	$querySql="select DeviceInfo.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceInfo.STATUS='Disposition_OK' and DeviceAction.MAC=DeviceInfo.MAC";
+	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceAction.STATUS='Disposition_OK' and DeviceAction.MAC=DeviceInfo.MAC";
 	$res=$db->Query($querySql);
 	$numResRequire=$db->GetRowsNum($res);
 	
-	$querySql="select DeviceInfo.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceInfo.STATUS in ('Execution_OK', 'Execution_Err') and DeviceAction.MAC=DeviceInfo.MAC";
+	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceAction.STATUS in ('Execution_OK', 'Execution_Err') and DeviceAction.MAC=DeviceInfo.MAC";
 	
 	while(true)
 	{

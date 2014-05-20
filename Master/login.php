@@ -7,7 +7,7 @@ $db=new Device($db_host, $db_user, $db_pwd, $db_name, $db_charSet, $db_conn);
 $createTableSql="CREATE TABLE IF NOT EXISTS DeviceInfo(ID int(10) unsigned NOT NULL AUTO_INCREMENT, STATUS char(30) NOT NULL, IP char(30) NOT NULL, MAC char(30) NOT NULL, NATTYPE char(30) NOT NULL, PRIMARY KEY(ID))";
 $db->Query($createTableSql);
 
-$createTableSql="CREATE TABLE IF NOT EXISTS DeviceAction(ID int(10) unsigned NOT NULL AUTO_INCREMENT, MAC char(30) NOT NULL, ACTION char(30) NOT NULL DEFAULT 'WAIT', FILE char(30) NOT NULL DEFAULT '', PRIMARY KEY(ID))";
+$createTableSql="CREATE TABLE IF NOT EXISTS DeviceAction(ID int(10) unsigned NOT NULL AUTO_INCREMENT, MAC char(30) NOT NULL, ACTION char(30) NOT NULL DEFAULT 'WAIT', FILE char(30) NOT NULL DEFAULT '', STATUS char(30) NOT NULL, PRIMARY KEY(ID))";
 $db->Query($createTableSql);
 
 $querySql="SELECT * FROM DeviceInfo WHERE MAC='$_POST[MAC]'";
@@ -36,7 +36,10 @@ else if($numRows==1)
     $affectedRows=mysql_affected_rows();
     echo $affectedRows . " Records Updated\n";
 
-    $updateSql="UPDATE DeviceAction SET ACTION='WAIT', FILE='' WHERE MAC='$_POST[MAC]'";
+#    Remove lines to update DeviceAction on Action = "Wait"
+#    "Wait" Action will be returned in "action.php" while there's no matching records for queried device
+#    $updateSql="UPDATE DeviceAction SET ACTION='WAIT', FILE='' WHERE MAC='$_POST[MAC]'";
+    $updateSql="Insert into DeviceAction (ACTION, FILE, STATUS, MAC) values('WAIT', '', 'PENDING', '$_POST[MAC]')";
     $db->Query($updateSql);
     $affectedRows=mysql_affected_rows();
     echo $affectedRows . " Records Updated\n";

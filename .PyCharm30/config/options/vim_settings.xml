@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+  <component name="VimSettings">
+    <state version="4" enabled="true" />
+    <globalmarks />
+    <filemarks>
+      <file name="$USER_HOME$/Master/AutoTest/AutoTest.py" timestamp="1400121702889">
+        <mark key="]" line="4" column="29" />
+        <mark key="^" line="4" column="29" />
+        <mark key="." line="4" column="29" />
+        <mark key="[" line="8" column="27" />
+      </file>
+    </filemarks>
+    <jumps />
+    <registers>
+      <register name="3" type="4">
+        <text>excluded</text>
+      </register>
+      <register name="&quot;" type="4">
+        <text>/</text>
+      </register>
+      <register name="2" type="4">
+        <text>/</text>
+      </register>
+      <register name="1" type="4">
+        <text>/</text>
+      </register>
+      <register name="7" type="4">
+        <text>W</text>
+      </register>
+      <register name="6" type="4">
+        <text>R</text>
+      </register>
+      <register name="5" type="4">
+        <text encoding="base64">CmRlZiBydW4oaWQsIHNjcmlwdCk6CiAgICByZXR1cm4gMAoKZGVmIHdhaXQoaWQsIHBpZCk6CiAgICBwYXNzCg==</text>
+      </register>
+      <register name="4" type="2">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="9" type="4">
+        <text>R</text>
+      </register>
+      <register name="8" type="4">
+        <text>R</text>
+      </register>
+      <register name="-" type="4">
+        <text>/</text>
+      </register>
+    </registers>
+    <search>
+      <last-dir>0</last-dir>
+      <show-last>false</show-last>
+    </search>
+    <history />
+    <shortcut-conflicts />
+  </component>
+</application>
+
