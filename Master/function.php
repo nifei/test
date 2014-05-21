@@ -12,9 +12,9 @@ function DisposeFileToDevices($db, $fields, $fileName, $NumDevicesRequired)
 	$querySql="select * from DeviceInfo where NATTYPE='$fields' and STATUS in ('Online', 'Idle')";
 	$res=$db->Query($querySql);
 	
-#	while($NumDevicesRequired>0 && $row=mysql_fetch_array($res))
+	while($NumDevicesRequired>0 && $row=mysql_fetch_array($res))
 	{
-                $row=mysql_fetch_array($res);
+#                $row=mysql_fetch_array($res);
 		$updateSql="UPDATE DeviceAction SET ACTION='GET', FILE='$fileName', STATUS='PENDING' WHERE MAC='$row[MAC]'";
 		$db->Query($updateSql);
 		$NumDevicesRequired--;
