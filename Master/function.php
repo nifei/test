@@ -87,8 +87,8 @@ function CtrlDevicesExecuteFile($db, $fileName)
 
 function WaitExecuteDone($db, $fileName, $numRes)
 {
-	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceAction.STATUS='Disposition_OK' and DeviceAction.MAC=DeviceInfo.MAC";
-	$res=$db->Query($querySql);
+//	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceAction.STATUS='Disposition_OK' and DeviceAction.MAC=DeviceInfo.MAC";
+#	$res=$db->Query($querySql);
 #	$numResRequire=$db->GetRowsNum($res);
 	$numResRequire=$numRes;
 	
