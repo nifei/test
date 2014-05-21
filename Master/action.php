@@ -67,6 +67,7 @@ $last_action_id=$_POST[ACTION_ID];
 #default:
 #    break;
 #}
+#test
 
 echo "ACTION_ID: " . $next_action_id . "\n";
 echo "ACTION: " . $next_action . "\n";
