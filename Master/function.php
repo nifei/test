@@ -12,9 +12,9 @@ function DisposeFileToDevices($db, $fields, $fileName, $NumDevicesRequired)
 	$querySql="select * from DeviceInfo where NATTYPE='$fields' and STATUS in ('Online', 'Idle')";
 	$res=$db->Query($querySql);
 	
-	while($NumDevicesRequired>0 && $row=mysql_fetch_array($res))
+#	while($NumDevicesRequired>0 && $row=mysql_fetch_array($res))
 	{
-#                $row=mysql_fetch_array($res);
+                $row=mysql_fetch_array($res);
 		$updateSql="UPDATE DeviceAction SET ACTION='GET', FILE='$fileName', STATUS='PENDING' WHERE MAC='$row[MAC]'";
 		$db->Query($updateSql);
 		$NumDevicesRequired--;
@@ -50,7 +50,7 @@ function EchoDisposeResultsWithNatType($db, $fields, $NumDevicesRequired, $fileN
 		<td align='center'>FileName</td>
 	</tr>";
 
-	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceInfo.STATUS in ('Disposition_OK', 'Disposition_Err') and DeviceAction.MAC=DeviceInfo.MAC";
+	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceAction.STATUS in ('Disposition_OK', 'Disposition_Err') and DeviceAction.MAC=DeviceInfo.MAC";
 	$res=$db->Query($querySql);
 	$numRes=$db->GetRowsNum($res);
 	
@@ -81,14 +81,16 @@ function CtrlDevicesExecuteFile($db, $fileName)
 		$updateSql="UPDATE DeviceAction SET ACTION='EXECUTE', STATUS='PENDING' WHERE MAC='$row[mac]'";
 		$db->Query($updateSql);
 	}
+        return $numRes;
 
 }
 
-function WaitExecuteDone($db, $fileName)
+function WaitExecuteDone($db, $fileName, $numRes)
 {
 	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceAction.STATUS='Disposition_OK' and DeviceAction.MAC=DeviceInfo.MAC";
 	$res=$db->Query($querySql);
-	$numResRequire=$db->GetRowsNum($res);
+#	$numResRequire=$db->GetRowsNum($res);
+	$numResRequire=$numRes;
 	
 	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceAction.STATUS in ('Execution_OK', 'Execution_Err') and DeviceAction.MAC=DeviceInfo.MAC";
 	
@@ -101,7 +103,7 @@ function WaitExecuteDone($db, $fileName)
 		if($numResRequire>$numRes)
 		{
 			echo "Executing " . $fileName . " On Devices......" . "<br/>";
-			sleep(5);
+			sleep(15);
 		}
 		else if($numResRequire==$numRes)
 		{

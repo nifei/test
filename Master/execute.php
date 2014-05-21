@@ -17,8 +17,8 @@ echo "fileName: " . $fileName . "<br/>";
 echo "Checked " . $_POST['IS_Execute'] . "<br/>";
 $db=new Device($db_host, $db_user, $db_pwd, $db_name, $db_charSet, $db_conn);
 
-CtrlDevicesExecuteFile($db, $fileName);
-WaitExecuteDone($db, $fileName);
+$numRes = CtrlDevicesExecuteFile($db, $fileName);
+WaitExecuteDone($db, $fileName, $numRes);
 
 ?>
 
