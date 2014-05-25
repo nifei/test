@@ -3,9 +3,10 @@ require_once('mysqlconf.php');
 require_once('devicesql.php');
 
 $db=new Device($db_host, $db_user, $db_pwd, $db_name, $db_charSet, $db_conn);
+$client_ip=$_SERVER["REMOTE_ADDR"];
 
 $updateSqlAction="UPDATE DeviceAction SET STATUS='$_POST[STATUS]' WHERE ID='$_POST[ACTION_ID]'"; 
-$updateSqlInfo="UPDATE DeviceInfo SET IP='$_POST[IP]', NATTYPE='$_POST[NATTYPE]' WHERE MAC='$_POST[MAC]'";
+$updateSqlInfo="UPDATE DeviceInfo SET IP='$client_ip', NATTYPE='$_POST[NATTYPE]' WHERE MAC='$_POST[MAC]'";
 $db->Query($updateSqlAction);
 $db->Query($updateSqlInfo);
 
@@ -27,50 +28,12 @@ else
         $updateSqlAction="UPDATE DeviceAction SET STATUS='RUNNING' WHERE ID='$next_action_id'"; 
         $db->Query($updateSqlAction);
         $extra_info="found";
-
 }
 $last_action_id=$_POST[ACTION_ID];
-
-#switch($_POST['STATUS'])
-#{
-#case "Disposition_OK":
-#case "Disposition_Err":
-#    if($action!="EXECUTE")
-#    {
-#        $updateSql="UPDATE DeviceAction SET ACTION='WAIT' WHERE MAC='$_POST[MAC]'";
-#        $db->Query($updateSql);
-#        $action="WAIT";
-#    }
-#    break;
-#
-#case "Execution_OK":
-#case "Execution_Err":
-#    if($action!="REPLOG")
-#    {
-#        $updateSql="UPDATE DeviceAction SET ACTION='WAIT' WHERE MAC='$_POST[MAC]'";
-#        $db->Query($updateSql);
-#	$action="WAIT";
-#    }
-#    break;
-#
-#case "Test_Done":
-#    $updateSql="UPDATE DeviceAction SET ACTION='WAIT', FILE='' WHERE MAC='$_POST[MAC]'";
-#    $db->Query($updateSql);
-#
-#    $updateSql="UPDATE DeviceInfo SET STATUS='Idle' WHERE MAC='$_POST[MAC]'";
-#    $db->Query($updateSql);
-#
-#    $action="WAIT";
-#    $fileName='';
-#    break;
-#
-#default:
-#    break;
-#}
-#test
 
 echo "ACTION_ID: " . $next_action_id . "\n";
 echo "ACTION: " . $next_action . "\n";
 echo "FILE: " . $next_fileName . "\n";
 echo "EXTRA: " . $extra_info . "\n";
+echo "IP: " . $_SERVER["REMOTE_ADDR"] . "\n";
 ?>

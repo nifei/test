@@ -12,10 +12,9 @@ function DisposeFileToDevices($db, $fields, $fileName, $NumDevicesRequired)
 	$querySql="select * from DeviceInfo where NATTYPE='$fields' and STATUS in ('Online', 'Idle')";
 	$res=$db->Query($querySql);
 	
-#	while($NumDevicesRequired>0 && $row=mysql_fetch_array($res))
+	while($NumDevicesRequired>0 && $row=mysql_fetch_array($res))
 	{
-                $row=mysql_fetch_array($res);
-		$updateSql="UPDATE DeviceAction SET ACTION='GET', FILE='$fileName', STATUS='PENDING' WHERE MAC='$row[MAC]'";
+		$updateSql="INSERT into DeviceAction(MAC,ACTION,FILE,STATUS) values('$row[MAC]','GET','$fileName','PENDING')";
 		$db->Query($updateSql);
 		$NumDevicesRequired--;
 	}
@@ -78,7 +77,7 @@ function CtrlDevicesExecuteFile($db, $fileName)
 	
 	while($row=mysql_fetch_array($res))
 	{
-		$updateSql="UPDATE DeviceAction SET ACTION='EXECUTE', STATUS='PENDING' WHERE MAC='$row[mac]'";
+		$updateSql="INSERT into DeviceAction (MAC,ACTION,FILE,STATUS) values('$row[mac]','EXECUTE','$fileName','PENDING')";
 		$db->Query($updateSql);
 	}
         return $numRes;
@@ -87,8 +86,8 @@ function CtrlDevicesExecuteFile($db, $fileName)
 
 function WaitExecuteDone($db, $fileName, $numRes)
 {
-//	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceAction.STATUS='Disposition_OK' and DeviceAction.MAC=DeviceInfo.MAC";
-#	$res=$db->Query($querySql);
+	$querySql="select DeviceAction.STATUS, DeviceInfo.IP, DeviceInfo.MAC, DeviceInfo.NATTYPE , DeviceAction.FILE from DeviceInfo, DeviceAction where DeviceAction.FILE='$fileName' and DeviceAction.STATUS='Disposition_OK' and DeviceAction.MAC=DeviceInfo.MAC";
+	$res=$db->Query($querySql);
 #	$numResRequire=$db->GetRowsNum($res);
 	$numResRequire=$numRes;
 	
@@ -103,7 +102,7 @@ function WaitExecuteDone($db, $fileName, $numRes)
 		if($numResRequire>$numRes)
 		{
 			echo "Executing " . $fileName . " On Devices......" . "<br/>";
-			sleep(15);
+			sleep(5);
 		}
 		else if($numResRequire==$numRes)
 		{

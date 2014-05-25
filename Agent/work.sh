@@ -1,6 +1,12 @@
 #!/bin/bash
 # Get IP
 #IP=`ifconfig | grep inet | grep -v "127.0.0.1"| sed -n '1p'| awk '{print $2}'|awk -F ':' '{print $2}'`
+
+
+if [ "$1"x = "silent"x ];then
+	echo 'silent mode'
+fi
+
 IP=$(ifconfig | grep inet | grep -v "127.0.0.1"| sed -n '1p'| awk '{print $2}'|awk -F ':' '{print $2}')
 
 # Get MAC
@@ -18,7 +24,7 @@ MasterIp=`cat Net.conf | grep "MASTERIP:" | awk -F ":" '{print $2}' | tr -d " "`
 
 # Online login
 STATUS="Online"
-wget --post-data "STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE" http://$MasterIp/login.php -O login.php
+wget --post-data "STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE" http://$MasterIp/login.php -O login.php 
 #rm result.php
 
 # report STATUS, IP, NATTYPE... which may be changed; request ACTION.
@@ -41,18 +47,21 @@ do
     IP=`ifconfig | grep inet | grep -v "127.0.0.1"| sed -n '1p'| awk '{print $2}'|awk -F ':' '{print $2}'`
 
 # report STATUS, IP, NATTYPE... which may be changed.
+if [ "$1"x != "silent"x ];then
     echo "wget --post-data STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE&ACTION_ID=$ACTION_ID http://$MasterIp/action.php -O action.php"
+fi
 
-    wget --post-data "STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE&ACTION_ID=$ACTION_ID" http://$MasterIp/action.php -O action.php
+    wget --post-data "STATUS=$STATUS&MAC=$MAC&IP=$IP&NATTYPE=$NATTYPE&ACTION_ID=$ACTION_ID" http://$MasterIp/action.php -O action.php 
 
 # Resolve ACTION, FILE from action.php returned.
 	ACTION=`cat action.php | grep "ACTION:" | awk -F ":" '{print $2}' | tr -d " "`
 	ACTION_ID=`cat action.php | grep "ACTION_ID:" | awk -F ":" '{print $2}' | tr -d " "`
 	EXTRA=`cat action.php | grep "EXTRA:" | awk -F ":" '{print $2}' | tr -d " "`
+if [ "$1"x != "silent"x ];then
     echo "ACTION: $ACTION"
     echo "ACTION_ID: $ACTION_ID"
     echo "EXTRA: $EXTRA"
-    
+fi    
     case "$ACTION" in
         "WAIT")
             sleep 5s
@@ -62,15 +71,18 @@ do
             fileName=`cat action.php | grep "FILE:" | awk -F ":" '{print $2}' | tr -d " "`
             localFileName="${fileName##*/}"
 #            localFileName=`basename $fileName`
+if [ "$1"x != "silent"x ];then
             echo "filename: $fileName"
             echo "localFileName: $localFileName"
-
+fi
             if [[ -f "${Download}/${localFileName}" ]]; then
-                echo "${Download}/${localFileName} has existed already, Remove firstly." 
+                if [ "$1"x != "silent"x ];then
+                    echo "${Download}/${localFileName} has existed already, Remove firstly." 
+		fi
                 rm -f "${Download}/${localFileName}"
             fi
 
-            wget -c -P "$Download" "http://$MasterIp/$fileName"
+            wget -c -P "$Download" "http://$MasterIp/$fileName" 
 
             if [[ ! -f "${Download}/${localFileName}" ]]; then
                 STATUS="Disposition_Err"
@@ -91,7 +103,10 @@ do
             fi
             ;;
         *)
-            echo "Invalid Action: $ACTION"
+	    
+            if [ "$1"x != "silent"x ];then
+		    echo "Invalid Action: $ACTION"
+            fi
             exit 2
             ;;
     esac

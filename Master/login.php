@@ -23,10 +23,10 @@ if($numRows==0)
     $affectedRows=mysql_affected_rows();
     echo  $affectedRows . " Records Insterted\n";
 
-    $insertSql="INSERT INTO DeviceAction(ID, MAC) values('', '$_POST[MAC]')";
-    $db->Query($insertSql);
-    $affectedRows=mysql_affected_rows();
-    echo $affectedRows . " Records Insterted\n";
+#    $insertSql="INSERT INTO DeviceAction(ID, MAC) values('', '$_POST[MAC]')";
+#    $db->Query($insertSql);
+#    $affectedRows=mysql_affected_rows();
+#    echo $affectedRows . " Records Insterted\n";
 }
 else if($numRows==1)
 {
@@ -39,10 +39,10 @@ else if($numRows==1)
 #    Remove lines to update DeviceAction on Action = "Wait"
 #    "Wait" Action will be returned in "action.php" while there's no matching records for queried device
 #    $updateSql="UPDATE DeviceAction SET ACTION='WAIT', FILE='' WHERE MAC='$_POST[MAC]'";
-    $updateSql="Insert into DeviceAction (ACTION, FILE, STATUS, MAC) values('WAIT', '', 'PENDING', '$_POST[MAC]')";
-    $db->Query($updateSql);
-    $affectedRows=mysql_affected_rows();
-    echo $affectedRows . " Records Updated\n";
+#    $updateSql="Insert into DeviceAction (ACTION, FILE, STATUS, MAC) values('WAIT', '', 'PENDING', '$_POST[MAC]')";
+#    $db->Query($updateSql);
+#    $affectedRows=mysql_affected_rows();
+#    echo $affectedRows . " Records Updated\n";
 }
 else
 {
