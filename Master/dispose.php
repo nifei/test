@@ -56,63 +56,63 @@ else
 	DisposeFileToDevices($db, "liantong", $fileName, $_POST['liantong']);
 }
 
-#if($_POST['yidong']>$YiDongNumDevices)
-#{
-#	echo "There is just " . $YiDongNumDevices . " Devices, less than your requirement " . $_POST['yidong'] . "<br/>";
-#	return;
-#}
-#else
-#{
-#	DisposeFileToDevices($db, "yidong", $fileName, $_POST['yidong']);
-#}
-#
-#$done=false;
-#$DianXinDone=false;
-#$LianTongDone=false;
-#$YiDongDone=false;
-#
-#while(!$done)
-#{
-#	if(!$DianXinDone)
-#	{
-#		$DianXinDone=CheckDisposeDoneWithNatType($db, "dianxin", $_POST['dianxin']);
-#	}
-#	
-#	if(!$LianTongDone)
-#	{
-#		$LianTongDone=CheckDisposeDoneWithNatType($db, "liantong", $_POST['liantong']);
-#	}
-#	
-#	if(!$YiDongDone)
-#	{
-#		$YiDongDone=CheckDisposeDoneWithNatType($db, "yidong", $_POST['yidong']);
-#	}
-#	
-#	if($DianXinDone && $LianTongDone && $YiDongDone)
-#	{
-#		$done=true;	
-#	}
-#	else
-#	{
-#		echo "Disposing file: " . $fileName . " to Devices...... " . "<br/>";
-#		sleep(5);	
-#	}
-#}
-#
-#if($_POST['dianxin'] > 0)
-#{
-#	EchoDisposeResultsWithNatType($db, "dianxin", $_POST['dianxin'], $fileName);
-#}
-#
-#if($_POST['liantong'] > 0)
-#{
-#	EchoDisposeResultsWithNatType($db, "liantong", $_POST['liantong'], $fileName);
-#}
-#
-#if($_POST['yidong'] > 0)
-#{
-#	EchoDisposeResultsWithNatType($db, "yidong", $_POST['yidong'], $fileName);
-#}
+if($_POST['yidong']>$YiDongNumDevices)
+{
+	echo "There is just " . $YiDongNumDevices . " Devices, less than your requirement " . $_POST['yidong'] . "<br/>";
+	return;
+}
+else
+{
+	DisposeFileToDevices($db, "yidong", $fileName, $_POST['yidong']);
+}
+
+$done=false;
+$DianXinDone=false;
+$LianTongDone=false;
+$YiDongDone=false;
+
+while(!$done)
+{
+	if(!$DianXinDone)
+	{
+		$DianXinDone=CheckDisposeDoneWithNatType($db, "dianxin", $_POST['dianxin']);
+	}
+	
+	if(!$LianTongDone)
+	{
+		$LianTongDone=CheckDisposeDoneWithNatType($db, "liantong", $_POST['liantong']);
+	}
+	
+	if(!$YiDongDone)
+	{
+		$YiDongDone=CheckDisposeDoneWithNatType($db, "yidong", $_POST['yidong']);
+	}
+	
+	if($DianXinDone && $LianTongDone && $YiDongDone)
+	{
+		$done=true;	
+	}
+	else
+	{
+		echo "Disposing file: " . $fileName . " to Devices...... " . "<br/>";
+		sleep(5);	
+	}
+}
+
+if($_POST['dianxin'] > 0)
+{
+	EchoDisposeResultsWithNatType($db, "dianxin", $_POST['dianxin'], $fileName);
+}
+
+if($_POST['liantong'] > 0)
+{
+	EchoDisposeResultsWithNatType($db, "liantong", $_POST['liantong'], $fileName);
+}
+
+if($_POST['yidong'] > 0)
+{
+	EchoDisposeResultsWithNatType($db, "yidong", $_POST['yidong'], $fileName);
+}
 
 ?>
 

@@ -30,10 +30,8 @@ else
         $extra_info="found";
 }
 $last_action_id=$_POST[ACTION_ID];
-
 echo "ACTION_ID: " . $next_action_id . "\n";
 echo "ACTION: " . $next_action . "\n";
 echo "FILE: " . $next_fileName . "\n";
 echo "EXTRA: " . $extra_info . "\n";
-echo "IP: " . $_SERVER["REMOTE_ADDR"] . "\n";
-?>
+echo "ADDR:" . $_SERVER["REMOTE_ADDR"] . "\n";
