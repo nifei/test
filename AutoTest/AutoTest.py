@@ -3,10 +3,19 @@ import time
 import MySQLdb
 
 def autoTest():
-    action_3 = deploy_async(1, 'download/3.sh')
-    print "action id:%s, status:%s" % (action_3, wait(action_3))
-    action_4,status = run_sync(1, 'download/3.sh')
-    print "action id:%s, status:%s" % (action_4, status)
+#    deploy_tar = deploy_async(4, 'download/windows.zip')
+#    print "action id:%s, status:%s" % (deploy_tar, wait(deploy_tar))
+#    deploy_xtar,status = deploy_sync(4, 'download/xtar-win.sh')
+#    print "action id:%s, status:%s" % (deploy_xtar,status)
+#    run_xtar,status = run_sync(4, 'download/xtar-win.sh')
+#    print "action id:%s, status:%s" % (run_xtar, status)
+#    deploy_tar_l = deploy_async(3, 'download/linux.tar.gz')
+#    print "action id:%s, status:%s" % (deploy_tar_l, wait(deploy_tar_l))
+    deploy_xtar_l,status = deploy_sync(3, 'download/xtar-linux.sh')
+    print "action id:%s, status:%s" % (deploy_xtar_l,status)
+    run_xtar_l, status = run_sync(3, 'download/xtar-linux.sh')
+    print "action id:%s, status:%s" % (run_xtar_l, status)
+
 
 def run_sync(device_id, script):
     return action_sync(device_id, "EXECUTE", script)
@@ -94,6 +103,6 @@ def query_device_mac(device_id):
     cursor.execute("Select MAC from DeviceInfo where ID='%d'" % (device_id))
     row = cursor.fetchone()
     db.close()
-    return row[0]
+    return row[0] if row else None
 
 autoTest()

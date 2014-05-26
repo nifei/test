@@ -4,7 +4,7 @@ require_once('devicesql.php');
 require_once('function.php');
 
 $prefix="/usr/share/nginx/www/download/";
-
+#$prefix="/usr/local/nginx/html/download/";
 if ($_FILES["file"]["error"] > 0)
 {
 	echo "Error: " . $_FILES["file"]["error"] . "<br />";
