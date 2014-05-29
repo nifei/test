@@ -21,14 +21,13 @@ query_cone = {
 
 def autoTest():
     devices_null_nat = allocation.find_device(query_none, 1)
-    devices_cone_nat = allocation.find_device(query_cone, 1)
-    if len(devices_null_nat) < 1 or len(devices_cone_nat) < 1:
-        return ('Failed', 'No Enough Devices')
+#    devices_cone_nat = allocation.find_device(query_cone, 1)
+#    if len(devices_null_nat) < 1 or len(devices_cone_nat) < 1:
+#        return ('Failed', 'No Enough Devices')
     allocation.occupy_devices(devices_null_nat, 'exclusive')
-    allocation.occupy_devices(devices_cone_nat, 'shared')
-    allocation.release_devices(devices_null_nat+devices_cone_nat)
-#    deploy_tar = deploy_async(4, 'download/windows.zip')
-#    print "action id:%s, status:%s" % (deploy_tar, wait(deploy_tar))
+#    allocation.occupy_devices(devices_cone_nat, 'shared')
+    deploy_tar = actions.deploy_async(devices_null_nat[0], 'download/windows.zip')
+    print "action id:%s, status:%s" % (deploy_tar, actions.wait(deploy_tar))
 #    deploy_xtar,status = deploy_sync(4, 'download/xtar-win.sh')
 #    print "action id:%s, status:%s" % (deploy_xtar,status)
 #    run_xtar,status = run_sync(4, 'download/xtar-win.sh')
@@ -39,5 +38,6 @@ def autoTest():
 #    print "action id:%s, status:%s" % (deploy_xtar_l,status)
 #    run_xtar_l, status = run_sync(3, 'download/xtar-linux.sh')
 #    print "action id:%s, status:%s" % (run_xtar_l, status)
+    allocation.release_devices(devices_null_nat)
 
 autoTest()

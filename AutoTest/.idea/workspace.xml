@@ -12,7 +12,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/AutoTest$AutoTest.coverage" NAME="AutoTest Coverage Results" MODIFIED="1401277477037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AutoTest$AutoTest.coverage" NAME="AutoTest Coverage Results" MODIFIED="1401350255954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AutoTest$DeviceDB.coverage" NAME="DeviceDB Coverage Results" MODIFIED="1401266370020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/functions" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -30,98 +30,7 @@
       <file leaf-file-name="AutoTest.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AutoTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="17" selection-start="1233" selection-end="1233" vertical-scroll-proportion="0.5863708" vertical-offset="645" max-vertical-offset="1421">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Allocation.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="717" max-vertical-offset="1508">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Actions.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/Actions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="41" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="1189">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceDB.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="12" selection-start="4177" selection-end="4177" vertical-scroll-proportion="0.0" vertical-offset="2950" max-vertical-offset="3886">
-              <folding>
-                <marker date="1401274844256" expanded="true" signature="522:562" placeholder="select * fro..DeviceAction..." />
-                <marker date="1401274844256" expanded="true" signature="877:987" placeholder="Insert into ..." />
-                <marker date="1401274844256" expanded="true" signature="1289:1338" placeholder="Update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="1537:1577" placeholder="Select MAC f..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="1918:1956" placeholder="Select MAC f..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="1918:1957" placeholder="Select MAC f..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="2219:2253" placeholder="select * fro..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="2306:2331" placeholder="select * fro..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="2726:2774" placeholder="select SHARE..DeviceAction..." />
-                <marker date="1401274844256" expanded="true" signature="2726:2775" placeholder="select SHARE..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="2971:3020" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="2971:3046" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="2971:3034" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="2971:3020" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="2971:3020" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="3362:3410" placeholder="select SHARE..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="3362:3411" placeholder="select SHARE..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="3620:3670" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="3620:3671" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="3941:3990" placeholder="select SHARE..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="3941:3991" placeholder="select SHARE..DeviceInfo..." />
-                <marker date="1401274844256" expanded="true" signature="4108:4155" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="4108:4158" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="4108:4159" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="4228:4288" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="4228:4291" placeholder="update Devic..." />
-                <marker date="1401274844256" expanded="true" signature="4228:4292" placeholder="update Devic..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="connections.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python2.7/dist-packages/MySQLdb/connections.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="1015" max-vertical-offset="9831">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cursors.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python2.7/dist-packages/MySQLdb/cursors.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="0" selection-start="5503" selection-end="5503" vertical-scroll-proportion="0.0" vertical-offset="5017" max-vertical-offset="14761">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fabfile.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../fabfile.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="333" column="35" selection-start="15215" selection-end="15215" vertical-scroll-proportion="0.0" vertical-offset="9657" max-vertical-offset="10643">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dump.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../pys/dump.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="24" selection-start="2654" selection-end="2654" vertical-scroll-proportion="0.0" vertical-offset="2001" max-vertical-offset="7076">
+            <state line="28" column="21" selection-start="784" selection-end="866" vertical-scroll-proportion="0.29329962" vertical-offset="580" max-vertical-offset="1421">
               <folding />
             </state>
           </provider>
@@ -141,13 +50,14 @@
         <option value="$PROJECT_DIR$/functions/DeviceDB.py" />
         <option value="$PROJECT_DIR$/functions/Occupation.py" />
         <option value="$PROJECT_DIR$/AutoTest.py" />
+        <option value="$USER_HOME$/environment/tutorial/testcase/testcase.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
     <option name="y" value="24" />
-    <option name="width" value="1851" />
+    <option name="width" value="1632" />
     <option name="height" value="896" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -219,7 +129,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -254,6 +163,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,7 +174,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pys/dump.py" />
+    <property name="last_opened_file_path" value="$USER_HOME$/environment/tutorial/testcase/testcase.py" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -357,6 +267,23 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="Python.AppEngineServer" factoryName="App Engine server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="AutoTest" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="host" value="127.0.0.1" />
+      <option name="browserUrl" value="" />
+      <option name="additionalOptions" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -394,6 +321,38 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.PyramidServer" factoryName="Pyramid server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="AutoTest" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="CONFIGURATION_FILE" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
+      <module name="" />
+      <option name="PORT" value="0" />
+      <option name="HOST" value="null" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list />
+        </option>
+      </PathMappingSettings>
+      <option name="REDIRECT_OUTPUT" value="true" />
+      <option name="SUSPEND_AFTER_CONNECT" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -462,6 +421,12 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.AutoTest" />
       <item index="1" class="java.lang.String" itemvalue="Python.DeviceDB" />
@@ -500,26 +465,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1851" height="896" extended-state="6" />
-    <editor active="true" />
+    <frame x="65" y="24" width="1632" height="896" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46341464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13992436" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19512194" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13970588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46341464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34756097" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
@@ -541,17 +506,192 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/AutoTest.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="18" />
+          <line>25</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/functions/DeviceDB.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="19" />
+      <option name="time" value="21" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/AutoTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="4" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0" vertical-offset="543" max-vertical-offset="1421">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="1508">
+          <folding>
+            <element signature="e#20#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/Actions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="41" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="638" max-vertical-offset="1218">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="12" selection-start="4177" selection-end="4177" vertical-scroll-proportion="0.0" vertical-offset="3509" max-vertical-offset="3886">
+          <folding>
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Insert into ..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceAction..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/dist-packages/MySQLdb/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="1015" max-vertical-offset="9831">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/dist-packages/MySQLdb/cursors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="0" selection-start="5503" selection-end="5503" vertical-scroll-proportion="0.0" vertical-offset="5017" max-vertical-offset="14761">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../fabfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="333" column="35" selection-start="15215" selection-end="15215" vertical-scroll-proportion="0.0" vertical-offset="9657" max-vertical-offset="10643">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../pys/dump.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="24" selection-start="2654" selection-end="2654" vertical-scroll-proportion="0.0" vertical-offset="2001" max-vertical-offset="7076">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutoTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="17" selection-start="1233" selection-end="1233" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1421">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="1508">
+          <folding>
+            <element signature="e#20#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/Actions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="41" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="638" max-vertical-offset="1218">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="12" selection-start="4177" selection-end="4177" vertical-scroll-proportion="0.0" vertical-offset="2950" max-vertical-offset="3886">
+          <folding>
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Insert into ..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceAction..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/dist-packages/MySQLdb/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="1015" max-vertical-offset="9831">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/dist-packages/MySQLdb/cursors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="0" selection-start="5503" selection-end="5503" vertical-scroll-proportion="0.0" vertical-offset="5017" max-vertical-offset="14761">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../fabfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="333" column="35" selection-start="15215" selection-end="15215" vertical-scroll-proportion="0.0" vertical-offset="9657" max-vertical-offset="10643">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../pys/dump.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="24" selection-start="2654" selection-end="2654" vertical-scroll-proportion="0.0" vertical-offset="2001" max-vertical-offset="7076">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AutoTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="40" selection-start="1835" selection-end="1835" vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="2407">
@@ -570,33 +710,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="84" column="23" selection-start="2621" selection-end="2621" vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="2610">
           <folding>
-            <marker date="1401274844256" expanded="true" signature="522:562" placeholder="select * fro..DeviceAction..." />
-            <marker date="1401274844256" expanded="true" signature="877:987" placeholder="Insert into ..." />
-            <marker date="1401274844256" expanded="true" signature="1289:1338" placeholder="Update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="1537:1577" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="1918:1956" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="1918:1957" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="2219:2253" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="2306:2331" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="2726:2774" placeholder="select SHARE..DeviceAction..." />
-            <marker date="1401274844256" expanded="true" signature="2726:2775" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3020" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3046" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3034" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3020" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3020" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="3362:3410" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="3362:3411" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="3620:3670" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="3620:3671" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="3941:3990" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="3941:3991" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="4108:4155" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4108:4158" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4108:4159" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4228:4288" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4228:4291" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4228:4292" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Insert into ..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceAction..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
           </folding>
         </state>
       </provider>
@@ -664,13 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/dist-packages/MySQLdb/connections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="673" max-vertical-offset="9686">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python2.7/dist-packages/MySQLdb/cursors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="173" column="0" selection-start="5503" selection-end="5503" vertical-scroll-proportion="0.0" vertical-offset="4758" max-vertical-offset="14703">
@@ -699,51 +831,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
+    <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="12" selection-start="4177" selection-end="4177" vertical-scroll-proportion="0.0" vertical-offset="2950" max-vertical-offset="3886">
+        <state line="37" column="0" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.3326572" vertical-offset="909" max-vertical-offset="1508">
           <folding>
-            <marker date="1401274844256" expanded="true" signature="522:562" placeholder="select * fro..DeviceAction..." />
-            <marker date="1401274844256" expanded="true" signature="877:987" placeholder="Insert into ..." />
-            <marker date="1401274844256" expanded="true" signature="1289:1338" placeholder="Update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="1537:1577" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="1918:1956" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="1918:1957" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="2219:2253" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="2306:2331" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="2726:2774" placeholder="select SHARE..DeviceAction..." />
-            <marker date="1401274844256" expanded="true" signature="2726:2775" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3020" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3046" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3034" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3020" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="2971:3020" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="3362:3410" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="3362:3411" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="3620:3670" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="3620:3671" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="3941:3990" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="3941:3991" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401274844256" expanded="true" signature="4108:4155" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4108:4158" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4108:4159" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4228:4288" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4228:4291" placeholder="update Devic..." />
-            <marker date="1401274844256" expanded="true" signature="4228:4292" placeholder="update Devic..." />
+            <element signature="e#20#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
+    <entry file="file:///usr/lib/python2.7/dist-packages/MySQLdb/connections.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="717" max-vertical-offset="1508">
+        <state line="35" column="0" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.05882353" vertical-offset="841" max-vertical-offset="9686">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="1898" selection-end="1898" vertical-scroll-proportion="0.51926976" vertical-offset="1629" max-vertical-offset="3886">
+          <folding>
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Insert into ..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceAction..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+            <marker date="1401274844256" expanded="true" signature="-1:-1" placeholder="update Devic..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/environment/tutorial/testcase/testcase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="8" selection-start="91" selection-end="91" vertical-scroll-proportion="0.11462451" vertical-offset="0" max-vertical-offset="609">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AutoTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="17" selection-start="1233" selection-end="1233" vertical-scroll-proportion="0.5863708" vertical-offset="645" max-vertical-offset="1421">
+        <state line="28" column="21" selection-start="784" selection-end="866" vertical-scroll-proportion="0.29329962" vertical-offset="580" max-vertical-offset="1421">
           <folding />
         </state>
       </provider>

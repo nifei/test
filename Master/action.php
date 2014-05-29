@@ -6,7 +6,13 @@ $db=new Device($db_host, $db_user, $db_pwd, $db_name, $db_charSet, $db_conn);
 $client_ip=$_SERVER["REMOTE_ADDR"];
 
 $updateSqlAction="UPDATE DeviceAction SET STATUS='$_POST[STATUS]' WHERE ID='$_POST[ACTION_ID]'"; 
-$updateSqlInfo="UPDATE DeviceInfo SET IP='$client_ip', NATTYPE='$_POST[NATTYPE]', NAT='$_POST[NAT]', TUNNEL='$_POST[TUNNEL]' WHERE MAC='$_POST[MAC]'";
+$updateSqlInfo="UPDATE DeviceInfo SET 
+        IP='$client_ip', 
+	NATTYPE='$_POST[NATTYPE]', 
+	NAT='$_POST[NAT]', 
+	TUNNEL='$_POST[TUNNEL]',
+	PEERID='$_POST[PEERID]' 
+        WHERE MAC='$_POST[MAC]'";
 $db->Query($updateSqlAction);
 $db->Query($updateSqlInfo);
 
