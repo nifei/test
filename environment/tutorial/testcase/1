@@ -1,2 +1,0 @@
-usage: gunicorn [OPTIONS] [APP_MODULE]
-gunicorn: error: No application module specified.
