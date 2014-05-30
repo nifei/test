@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}自动测试用例{% endblock %}
+{% block content %}
+    <div id="running_cases">
+        <h2>运行中</h2>
+        {{ running_cases_content }}
+    </div>
+    <div id="all_cases">
+        <h2>所有用例</h2>
+        {{ all_cases_content }}
+    </div>
+    <div id="case_detail">
+        <h2>用例详情</h2>
+        {{ case_detail_content }}
+    </div>
+{% endblock %}

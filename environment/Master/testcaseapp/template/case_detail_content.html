@@ -1,0 +1,17 @@
+<div id="case_file_upload">
+<span>
+<form action="Upload" method="POST" enctype="multipart/form-data" target="fileUp">
+<label>Upload $TestCase.tar</label>
+<input name="fileUpLoad" type="file" id="tar_file" />
+<input type="submit" name="submit" value="Upload" />
+</form>
+</span>
+<span>
+<form action="Upload" method="POST" enctype="multipart/form-data" target="fileUp">
+<label>Upload $TestCase.sh</label>
+<input name="fileUpLoad" type="file" id="py_file" />
+<input type="submit" name="submit" value="Upload" />
+</form>
+</span>
+</div>
+<iframe name="fileUp" width="0" height="0" scrolling="no"></iframe>
