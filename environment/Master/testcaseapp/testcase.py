@@ -1,10 +1,14 @@
-import jinja2
+import jinja2,cgi,os
 import unicodedata
+
+# ../bin/gunicorn -w 4 --env HTTP_ACCEPT_LANGUAGE='zh-CN' testcase:app
+
+UploadPath = '/home/test/TestCaseFiles/'
 
 def app(environ, start_response):
     if environ['PATH_INFO']=='/testcase/AutoTest':
         data = AutoTest(environ)
-    elif environ['PATH_INFO']=='/testcase/Upload':
+    elif environ['PATH_INFO']=='/testcase/Upload' and environ['REQUEST_METHOD'] == 'POST':
         data = Upload(environ)
     else:
         data = "Hello Gunicorn!\n"
@@ -27,8 +31,21 @@ def AutoTest(environ):
     return render_template(template, templateVars)
 
 def Upload(environ):
-    print environ
-    return None
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+
+    try:
+        fileitem = form['fileUpLoad']
+    except KeyError:
+        fileitem = None
+
+    if fileitem != None:
+        fn = os.path.basename(fileitem.filename)
+        open(UploadPath + fn, 'wb').write(fileitem.file.read())
+        message = 'The file "' + fn + '" was uploaded successfully'
+    else:
+        message = 'No file selected.'
+
+    return message
 
 def running_cases_content():
     template = get_template("running_cases_content.html")
