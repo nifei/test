@@ -1,17 +1,41 @@
+<div id="case_script_name">
+    <span>测试用例:</span>
+    <span><label id="lbl_test_case_name">{{ test_case_name }}</label></span>
+    <span><label id="id">1234</label></span>
+</div>
 <div id="case_file_upload">
 <span>
-<form action="Upload" method="POST" enctype="multipart/form-data" target="fileUp">
-<label>Upload $TestCase.tar</label>
-<input name="fileUpLoad" type="file" id="tar_file" />
-<input type="submit" name="submit" value="Upload" />
-</form>
-</span>
-<span>
-<form action="Upload" method="POST" enctype="multipart/form-data" target="fileUp">
-<label>Upload $TestCase.sh</label>
-<input name="fileUpLoad" type="file" id="py_file" />
-<input type="submit" name="submit" value="Upload" />
+<form action="EditCase" method="POST" enctype="multipart/form-data">
+    <input type="submit" name="submit" value="上传压缩包" />
+    <input type="hidden" name="fileType" value="TAR" />
+    <input name="fileUpLoad" type="file" id="tar_file" />
 </form>
 </span>
 </div>
-<iframe name="fileUp" width="0" height="0" scrolling="no"></iframe>
+<div>
+    <span>用例脚本:</span><span>{{ script_file }}</span><br/>
+    <span>部署文件:</span><br/>
+    <ul>
+    {% for tar in tars %}
+      <li>{{ tar }}</li>
+    {% endfor %}
+    </ul>
+</div>
+<div>
+    <button onclick="test();">test</button>
+</div>
+<iframe name="fileUp" width="100" height="100" scrolling="no">
+
+</iframe>
+
+<script type="text/javascript">
+    function test(){
+        //var test_case_namel = $('#lbl_test_case_name').text;
+        var test_case_namel = $('#id').text;
+        alert(test_case_name);
+        variable = new XMLHttpRequest();
+        variable.open("GET", test_case_name + ".py", true);
+        variable.send();
+//        $.post('/testcase/jquery', [,'data'],[,true],[,'string']);
+    };
+</script>
