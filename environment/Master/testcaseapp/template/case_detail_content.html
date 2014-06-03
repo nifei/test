@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
 <div id="case_script_name">
     <span>测试用例:</span>
     <span><label id="lbl_test_case_name">{{ test_case_name }}</label></span>
@@ -21,19 +23,21 @@
     </ul>
 </div>
 <div>
-    <button onclick="test();">test</button>
+    <button onclick="resolve_query_dict();">解析查询条件</button>
 </div>
-<iframe name="fileUp" width="100" height="100" scrolling="no">
-
-</iframe>
+<div>
+    <textarea id="test_case_resolve" style="position: relative; height:60vh; width: 100%;"></textarea>
+</div>
 
 <script type="text/javascript">
-    function test(){
-        //var test_case_namel = $('#lbl_test_case_name').text;
+    function resolve_query_dict(){
+        //console.log("test called");
         var test_case_name = document.getElementById("lbl_test_case_name").textContent;
-        variable = new XMLHttpRequest();
-        variable.open("POST", "/testcase/scripts/" + test_case_name + ".py", true);
-        variable.send();
-//        $.post('/testcase/jquery', [,'data'],[,true],[,'string']);
+        //console.log(test_case_name);
+        $.post("/testcase/scripts/"+test_case_name+".py",{arg:'resolve_query_dict'},function(result){
+            $("#test_case_resolve").html(result);
+            //alert(test_case_name)
+        });
     };
 </script>
+{% endblock %}

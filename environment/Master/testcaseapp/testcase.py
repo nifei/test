@@ -16,10 +16,11 @@ def app(environ, start_response):
         vars = upload_extract(environ)
         data = case_detail_content(vars)
     elif environ['PATH_INFO'].startswith('/testcase/scripts/'):
-        data = case_detail_content({})
+        form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+        if form['arg'].value == 'resolve_query_dict':
+            data = resolve_query_dict(environ['PATH_INFO'])
     else:
         data = environ['PATH_INFO']
-    print environ['PATH_INFO']
     start_response("200 OK", [
         ("Content-Type", "text/html;charset=utf8"),
         ("Content-Length", str(len(data))),
@@ -27,13 +28,14 @@ def app(environ, start_response):
     ])
     return iter([data])
 
+def
+
 def AutoTest(environ):
     template = get_template( "AutoTest.html" )
 
     templateVars = {
                      "running_cases_content" : running_cases_content(),
-                     "all_cases_content" : all_cases_content(),
-                     "case_detail_content" : case_detail_content()
+                     "all_cases_content" : all_cases_content()
                    }
 
     return render_template(template, templateVars)
@@ -104,4 +106,3 @@ def get_template(file):
 def render_template(template, vars):
     output = template.render(vars)
     return unicodedata.normalize("NFKD", output).encode("utf-8", "ignore")
-#print case_detail_content()

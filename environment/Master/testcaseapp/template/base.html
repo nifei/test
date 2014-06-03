@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.js"></script>
     {% block head %}
-        <link rel="stylesheet" href="style.css" />
         <title>{% block title %}{% endblock %}</title>
     {% endblock %}
 </head>
@@ -11,7 +11,6 @@
 <div id="content">{% block content %}{% endblock %}</div>
 <div id="footer">
     {% block footer %}
-        &copy; Copyright 2014 by <a href="http://domain.invalid/">xlp2p</a>.
     {% endblock %}
 </div>
 </body>
