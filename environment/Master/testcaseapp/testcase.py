@@ -15,9 +15,11 @@ def app(environ, start_response):
     elif environ['PATH_INFO']=='/testcase/EditCase' and environ['REQUEST_METHOD'] == "POST":
         vars = upload_extract(environ)
         data = case_detail_content(vars)
+    elif environ['PATH_INFO'].startswith('/testcase/scripts/'):
+        data = case_detail_content({})
     else:
         data = environ['PATH_INFO']
-        print environ['PATH_INFO']
+    print environ['PATH_INFO']
     start_response("200 OK", [
         ("Content-Type", "text/html;charset=utf8"),
         ("Content-Length", str(len(data))),

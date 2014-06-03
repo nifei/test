@@ -1,7 +1,6 @@
 <div id="case_script_name">
     <span>测试用例:</span>
     <span><label id="lbl_test_case_name">{{ test_case_name }}</label></span>
-    <span><label id="id">1234</label></span>
 </div>
 <div id="case_file_upload">
 <span>
@@ -31,10 +30,9 @@
 <script type="text/javascript">
     function test(){
         //var test_case_namel = $('#lbl_test_case_name').text;
-        var test_case_namel = $('#id').text;
-        alert(test_case_name);
+        var test_case_name = document.getElementById("lbl_test_case_name").textContent;
         variable = new XMLHttpRequest();
-        variable.open("GET", test_case_name + ".py", true);
+        variable.open("POST", "/testcase/scripts/" + test_case_name + ".py", true);
         variable.send();
 //        $.post('/testcase/jquery', [,'data'],[,true],[,'string']);
     };
