@@ -8,6 +8,7 @@ import inspect
 import functions.Allocation, functions.Actions
 import functions.DeviceDB
 import functions.Context
+import urlparse
 actions = functions.Actions
 allocation = functions.Allocation
 
@@ -70,31 +71,37 @@ def execute_query(test_case_name):
             ret, reason = allocation.occupy_device(device_list[0], shared_count)
             if ret: occupied_devices[device_name] = device_list[0]
     if ret == False:
-        return ret, reason, context
+        return reason
     else:
         data = ""
         for (device_name, device_id) in occupied_devices.items():
             data += device_name + ":\t" + '\t'.join(str(elem) for elem in functions.DeviceDB.query_device(device_id)) + '\n'
         context['occupied_devices'] = occupied_devices
         functions.Context.context_to_file(context, test_case_name)
-        return ret, data, context
+        return data
 
 def execute_deploy(test_case_name):
-    print "execute_deploy"
     context = functions.Context.name_to_context(test_case_name)
     occupied_devices = context['occupied_devices']
     script_module = importlib.import_module('scripts.' + test_case_name)
     test_attr = getattr(script_module, 'deploy_dict')
-    data = ""
+    data = {}
     for (device_name, device_id) in occupied_devices.items():
         tar = test_attr[device_name]
-        deploy_id, status = actions.deploy_sync(device_id, test_case_name + '/' + tar)
-        data += device_name + "," + str(device_id) + "," + test_case_name + '/' + tar + ',' + status + '\n'
-    print data
-    return True, data, context
+        xtar_sh = UploadPath + test_case_name + '/' + 'xtar' + '_' + tar + '.sh'
+        with open(xtar_sh, 'w+') as xtar_sh_file:
+            xtar_sh_file.write('tar -xvzf %s ./%s' % (tar, test_case_name))
+        deploy_id = actions.deploy_async(device_id, test_case_name + '/' + tar)
+        data[device_name] = [{"file": tar, "id": deploy_id}]
+    return json.dumps(data, indent=4, separators=(',', ':'))
 
 def execute_steps(test_case_name):
-    pass
+    script_module = importlib.import_module('scripts.' + test_case_name)
+    step_list = getattr(script_module, 'step_list')
+    for step in step_list:
+        step()
+
+    return "Success"
 
 def execute_release(test_case_name):
     context = functions.Context.name_to_context(test_case_name)
@@ -102,7 +109,7 @@ def execute_release(test_case_name):
     allocation.release_devices(occupied_devices.values())
     context['occupied_devices'] = {}
     functions.Context.context_to_file(context, test_case_name)
-    return True, str(occupied_devices), context
+    return str(occupied_devices)
 
 execute_script_methods = {
     'query': execute_query,
@@ -124,12 +131,15 @@ def app(environ, start_response):
         test_case_name = form['test_case_name'].value
         target = os.path.basename(environ['PATH_INFO'])
         data = resolve_script_methods[target](test_case_name)
-    elif environ['PATH_INFO'].startswith('/testcase/scripts/execute/'):
+    elif environ['PATH_INFO'].startswith('/testcase/scripts/execute/') and environ['REQUEST_METHOD'] == "POST":
         form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
         test_case_name = form['test_case_name'].value
         target = os.path.basename(environ['PATH_INFO'])
-        print target + test_case_name
-        ret, data, context = execute_script_methods[target](test_case_name)
+        data = execute_script_methods[target](test_case_name)
+    elif environ['PATH_INFO'].startswith('/testcase/scripts/execute/') and environ['REQUEST_METHOD'] == "GET":
+        form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+        target = os.path.basename(environ['PATH_INFO'])
+        data = execute_script_methods[target](environ['QUERY_STRING'])
     else:
         data = environ['PATH_INFO']
     start_response("200 OK", [
@@ -219,3 +229,4 @@ def render_template(template, vars):
 #data, devices = execute_query('test')
 #print data
 #allocation.release_devices(devices.values())
+execute_deploy('test')

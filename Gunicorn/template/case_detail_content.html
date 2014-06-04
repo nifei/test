@@ -29,9 +29,9 @@
     <button onclick="operate_script('execute','query');">查询  (´･_･`)ノ</button>
     <button onclick="operate_script('execute','release');">释放查询到的设备  (´･_･`)ノ</button>
     <button onclick="operate_script('resolve','deploy');">解析部署设置 （⊙-⊙）</button>
-    <button onclick="operate_script('execute','deploy');">部署  (´･_･`)ノ</button>
+    <button onclick="operate_script_async('execute','deploy');">部署  (´･_･`)ノ</button>
     <button onclick="operate_script('resolve','steps');">解析执行步骤 （⊙-⊙）</button>
-    <button onclick="operate_script('execute','steps');">按步骤执行测试  (´･_･`)ノ</button>
+    <button onclick="operate_script_async('execute','steps');">按步骤执行测试  (´･_･`)ノ</button>
 </div>
 <div>
     <textarea id="test_case_resolve" style="position: relative; height:60vh; width: 100%;" readonly="readonly"></textarea>
@@ -39,16 +39,26 @@
 
 <script type="text/javascript">
     function operate_script(operation, content_name){
-        console.log(content_name);
-        console.log(operation);
         var test_case_name = document.getElementById("lbl_test_case_name").textContent;
-        console.log(test_case_name);
         url="/testcase/scripts/" + operation + "/" + content_name
         $.post(url,{test_case_name:test_case_name},function(result){
-            console.log("log")
-            console.log(result)
             $("#test_case_resolve").html(result);
         });
     };
+    function operate_script_async(operation, content_name){
+        var test_case_name = document.getElementById("lbl_test_case_name").textContent;
+        url="/testcase/scripts/" + operation + "/" + content_name
+        $.post(url,{test_case_name:test_case_name},function(result){
+            console.log("interval")
+            var dict = JSON.parse(result)
+            var task_id = dict['task_id']
+            setInterval(function(){
+                console.log("called")
+                url = "/testcase/scripts/" + operation + "/" + content_name + "?task_id=" + task_id + "&test_case_name="+test_case_name
+                $.get(url, function(result){});
+            }, 5000);        });
+            $("#test_case_resolve").html(result);
+    }
+
 </script>
 {% endblock %}
