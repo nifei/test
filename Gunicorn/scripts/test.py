@@ -36,4 +36,4 @@ def start_client():
 def end_server():
     print "end_server"
 
-step_list = [ start_server, start_client, end_server ]
+#step_list = [ start_server, start_client, end_server ]
