@@ -15,7 +15,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Gunicorn$testcase.coverage" NAME="testcase Coverage Results" MODIFIED="1401967238411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Gunicorn$testcase.coverage" NAME="testcase Coverage Results" MODIFIED="1401969614224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gunicorn$DeviceDB.coverage" NAME="DeviceDB Coverage Results" MODIFIED="1401966848480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/functions" />
     <SUITE FILE_PATH="coverage/Gunicorn$Allocation.coverage" NAME="Allocation Coverage Results" MODIFIED="1401959866789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/functions" />
   </component>
@@ -34,10 +34,10 @@
       <file leaf-file-name="testcase.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testcase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="0" selection-start="5334" selection-end="5334" vertical-scroll-proportion="0.7781753" vertical-offset="3335" max-vertical-offset="8091">
+            <state line="116" column="62" selection-start="4898" selection-end="4898" vertical-scroll-proportion="0.20567375" vertical-offset="3306" max-vertical-offset="8236">
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#8166#8438#0" expanded="false" />
+                <element signature="e#8339#8611#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -556,10 +556,10 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12668464" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2510204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2510204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -593,7 +593,7 @@
         <state line="128" column="35" selection-start="5500" selection-end="5500" vertical-scroll-proportion="0.0" vertical-offset="3712" max-vertical-offset="6554">
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#8166#8438#0" expanded="false" />
+            <element signature="e#8339#8611#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -696,7 +696,7 @@
         <state line="90" column="24" selection-start="3755" selection-end="3761" vertical-scroll-proportion="0.0" vertical-offset="2610" max-vertical-offset="6554">
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#8166#8438#0" expanded="false" />
+            <element signature="e#8339#8611#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -799,7 +799,7 @@
         <state line="106" column="47" selection-start="4282" selection-end="4282" vertical-scroll-proportion="0.0" vertical-offset="261" max-vertical-offset="6032">
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#8166#8438#0" expanded="false" />
+            <element signature="e#8339#8611#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1030,10 +1030,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testcase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="0" selection-start="5334" selection-end="5334" vertical-scroll-proportion="0.7781753" vertical-offset="3335" max-vertical-offset="8091">
+        <state line="116" column="62" selection-start="4898" selection-end="4898" vertical-scroll-proportion="0.20567375" vertical-offset="3306" max-vertical-offset="8236">
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#8166#8438#0" expanded="false" />
+            <element signature="e#8339#8611#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -110,17 +110,22 @@ def execute_steps(environ):
     task_id = int(form['task_id'].value)
     return execute_task(task_id)
 
+import subprocess
 def execute_task(task_id):
+    #run_task(task_id)
+    print "execute_task"
+    subprocess.call("python -c 'import testcase; run_task(%s);'"%(task_id), shell=True)
+#    lock=threading.Lock()
+#    threading.Thread(target=run_task, args=(task_id, step_list), name='thread-'+test_case_name+task_name)
+    return "Success"
+
+def run_task(task_id):
+    print "run task called"
     task_info = functions.DeviceDB.query_task(task_id)
     task_name = task_info['task name']
     test_case_name = task_info['test case']
     script_module = importlib.import_module('scripts.' + test_case_name)
-    step_list = getattr(script_module, 'step_list')
-    lock=threading.Lock()
-    threading.Thread(target=run_task, args=(task_id, step_list), name='thread-'+test_case_name+task_name)
-    return "Success"
-
-def run_task(task_id, steps):
+    steps = getattr(script_module, 'step_list')
     occupied_devices = functions.DeviceDB.query_device_task_relation(task_id)
     for step in steps:
         step()
