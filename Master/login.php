@@ -23,6 +23,24 @@ $createTableSql="CREATE TABLE IF NOT EXISTS DeviceAction(
 	ACTION char(30) NOT NULL DEFAULT 'WAIT', 
 	FILE char(30) NOT NULL DEFAULT '', 
 	STATUS char(30) NOT NULL, 
+	TASK_ID int(10) unsigned DEFAULT 0, 
+	PRIMARY KEY(ID))";
+$db->Query($createTableSql);
+
+$createTableSql="CREATE TABLE IF NOT EXISTS Tasks (
+        ID int(10) unsigned NOT NULL AUTO_INCREMENT, 
+	TEST_CASE char(30) NOT NULL, 
+	TASK_NAME char(30) NOT NULL, 
+	STATUS char(30) NOT NULL, 
+	CURRENT_STEP int(10) unsigned, 
+	PRIMARY KEY(ID))";
+$db->Query($createTableSql);
+
+$createTableSql="CREATE TABLE IF NOT EXISTS TaskDeviceRelation (
+        ID int(10) unsigned NOT NULL AUTO_INCREMENT, 
+	TASK_ID int(10) NOT NULL, 
+	DEVICE_ID int(10) NOT NULL, 
+	ROLE char(30) NOT NULL, 
 	PRIMARY KEY(ID))";
 $db->Query($createTableSql);
 

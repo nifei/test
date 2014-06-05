@@ -2,13 +2,4 @@
 S'occupied_devices'
 p1
 (dp2
-S'client1'
-p3
-I2
-sS'client2'
-p4
-I3
-sS'server'
-p5
-I1
-ss.
+s.

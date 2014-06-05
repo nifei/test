@@ -53,6 +53,14 @@ def occupy_devices(device_ids, occupy_type):
     return ret, reason
 
 def release_devices(device_ids):
-    macs = db.query_device_macs(device_ids)
-    db.release_device(macs)
-    return True, ""
+    if len(device_ids) > 0:
+        macs = db.query_device_macs(device_ids)
+        db.release_device(macs)
+        return True, ""
+    else:
+        return True, "but no id assigned"
+
+def release_task_devices(task_id):
+    occupied_devices = db.query_device_task_relation(task_id)
+    release_devices(occupied_devices.values())
+    db.clear_device_task_relation(task_id)

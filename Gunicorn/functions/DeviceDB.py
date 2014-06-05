@@ -10,6 +10,54 @@ user = 'root'
 password = '123456'
 dbname = 'P2PDevice'
 
+# @in: task_id
+# @out: dict{device_name:device_id}
+
+def query_device_task_relation(task_id):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("select DEVICE_ID, ROLE from TaskDeviceRelation where TASK_ID=%d"%task_id)
+    rows = cursor.fetchall()
+    ret = {row[1]:int(row[0]) for row in rows }
+    db.close()
+    return ret
+
+def clear_device_task_relation(task_id):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("delete from TaskDeviceRelation where TASK_ID=%d"%task_id)
+    db.commit()
+    db.close()
+    return True
+
+# @in: task_id, device_id, role
+# @out: relation_id
+def insert_device_task_relation(task_id, device_id, device_name):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("insert into TaskDeviceRelation (TASK_ID, DEVICE_ID, ROLE) values(%d, %d, '%s')"%(task_id, device_id, device_name))
+    row_id = int(cursor.lastrowid)
+    db.commit()
+    db.close()
+    return row_id
+
+# @in: test_case, task_name,
+# @out: task_id
+
+def insert_task(test_case, task_name):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("select ID from Tasks where TASK_NAME='%s' and TEST_CASE='%s'"%(task_name, test_case))
+    rows = cursor.fetchall()
+    if len(rows) > 0:
+        row_id = int(rows[0][0])
+    else:
+        cursor.execute("insert into Tasks (TASK_NAME, TEST_CASE) values ('%s', '%s')"%(task_name, test_case))
+        row_id = int(cursor.lastrowid)
+        db.commit()
+    db.close()
+    return row_id
+
 # @in:  action_id
 # @out: status
 def query_action_status(action_id):
@@ -29,12 +77,12 @@ def query_action(action_id):
 
 # @in:  device_id, action, script_name
 # @out: action_id
-def insert_action(device_id, action, script):
+def insert_action(device_id, action, script, task_id):
     mac = query_device_mac(device_id)
     db = MySQLdb.connect(host, user, password, dbname)
     cursor = db.cursor()
-    cursor.execute("Insert into DeviceAction (ACTION, FILE, STATUS, MAC) "
-                   "values('%s', '%s', 'PENDING', '%s')" % (action, script, mac))
+    cursor.execute("Insert into DeviceAction (ACTION, FILE, STATUS, MAC, TASK_ID) "
+                   "values('%s', '%s', 'PENDING', '%s', '%d')" % (action, script, mac, task_id))
     action_id = int(cursor.lastrowid)
     db.commit()
     db.close()

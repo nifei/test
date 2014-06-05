@@ -49,38 +49,47 @@ resolve_script_methods = {
     'steps': resolve_step_list
     }
 
-def execute_query(test_case_name):
-    execute_release(test_case_name)
+def execute_query(environ):
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+    test_case_name = form['test_case_name'].value
+    task_id = int(form['task_id'].value)
+    if not task_id or task_id <= 0 or task_id == None:
+        return "invalid task id"
+   # Clear previous occupied devices
+    allocation.release_task_devices(task_id)
+
     script_module = importlib.import_module('scripts.' + test_case_name)
     query_dict = getattr(script_module, 'query_dict')
-    ret = True
-    reason = ""
+    all_found = True
     occupied_devices = {}
-    context = functions.Context.name_to_context(test_case_name)
     for (device_name, dict) in query_dict.items():
-        if ret == False:
+        if all_found == False:
             allocation.release_devices(occupied_devices)
             occupied_devices.clear()
             break
         device_list = allocation.find_device(dict, 1)
         if len(device_list) < 1:
-            ret = False
-            reason = "No device fits " + device_name
+            all_found = False
         else:
             shared_count = dict.get('SHARED_COUNT', None)
-            ret, reason = allocation.occupy_device(device_list[0], shared_count)
-            if ret: occupied_devices[device_name] = device_list[0]
-    if ret == False:
-        return reason
-    else:
-        data = ""
-        for (device_name, device_id) in occupied_devices.items():
-            data += device_name + ":\t" + '\t'.join(str(elem) for elem in functions.DeviceDB.query_device(device_id)) + '\n'
-        context['occupied_devices'] = occupied_devices
-        functions.Context.context_to_file(context, test_case_name)
-        return data
+            all_found, reason = allocation.occupy_device(device_list[0], shared_count)
+            if all_found:
+                occupied_devices[device_name] = device_list[0]
 
-def execute_deploy(test_case_name):
+    for (device_name, device_id) in occupied_devices.items():
+        functions.DeviceDB.insert_device_task_relation(task_id, device_id, device_name)
+    context={}
+    context['occupied_devices'] = occupied_devices
+    context['task_id'] = task_id
+    context['test_case_name'] = test_case_name
+    context['devices_assigned'] = all_found
+    data = json.dumps(context)
+    return data
+
+def execute_deploy(environ):
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+    test_case_name = form['test_case_name'].value
+
     context = functions.Context.name_to_context(test_case_name)
     occupied_devices = context['occupied_devices']
     script_module = importlib.import_module('scripts.' + test_case_name)
@@ -91,11 +100,16 @@ def execute_deploy(test_case_name):
         xtar_sh = UploadPath + test_case_name + '/' + 'xtar' + '_' + tar + '.sh'
         with open(xtar_sh, 'w+') as xtar_sh_file:
             xtar_sh_file.write('tar -xvzf %s ./%s' % (tar, test_case_name))
-        deploy_id = actions.deploy_async(device_id, test_case_name + '/' + tar)
-        data[device_name] = [{"file": tar, "id": deploy_id}]
+        actions.deploy_async(device_id, test_case_name + '/' + tar)
+    data['occupied_devices'] = occupied_devices
+    data['task_id'] = '12345'
+    data['test_case_name'] = test_case_name
     return json.dumps(data, indent=4, separators=(',', ':'))
 
-def execute_steps(test_case_name):
+def execute_steps(environ):
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+    test_case_name = form['test_case_name'].value
+
     script_module = importlib.import_module('scripts.' + test_case_name)
     step_list = getattr(script_module, 'step_list')
     for step in step_list:
@@ -103,19 +117,28 @@ def execute_steps(test_case_name):
 
     return "Success"
 
-def execute_release(test_case_name):
-    context = functions.Context.name_to_context(test_case_name)
-    occupied_devices = context['occupied_devices']
-    allocation.release_devices(occupied_devices.values())
-    context['occupied_devices'] = {}
-    functions.Context.context_to_file(context, test_case_name)
-    return str(occupied_devices)
+def execute_release(environ):
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+    test_case_name = form['test_case_name'].value
+    task_id = int(form['task_id'].value)
+    if not task_id or task_id <= 0 or task_id == None:
+        return "invalid task id"
+    allocation.release_task_devices(task_id)
+    return "released"
 
 execute_script_methods = {
     'query': execute_query,
     'release': execute_release,
     'deploy': execute_deploy,
     'steps': execute_steps
+}
+
+def check_deploy(environ):
+    query_dict = urlparse.parse_qs(environ['QUERY_STRING'])
+    return json.dumps(query_dict)
+
+check_script_methods = {
+    'deploy': check_deploy
 }
 
 def app(environ, start_response):
@@ -126,20 +149,19 @@ def app(environ, start_response):
     elif environ['PATH_INFO']=='/testcase/EditCase' and environ['REQUEST_METHOD'] == "POST":
         vars = upload_extract(environ)
         data = case_detail_content(vars)
+    elif environ['PATH_INFO']=='/testcase/scripts/newtask' and environ['REQUEST_METHOD'] == "POST":
+        data = new_task(environ)
     elif environ['PATH_INFO'].startswith('/testcase/scripts/resolve/'):
         form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
         test_case_name = form['test_case_name'].value
         target = os.path.basename(environ['PATH_INFO'])
         data = resolve_script_methods[target](test_case_name)
     elif environ['PATH_INFO'].startswith('/testcase/scripts/execute/') and environ['REQUEST_METHOD'] == "POST":
-        form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
-        test_case_name = form['test_case_name'].value
         target = os.path.basename(environ['PATH_INFO'])
-        data = execute_script_methods[target](test_case_name)
-    elif environ['PATH_INFO'].startswith('/testcase/scripts/execute/') and environ['REQUEST_METHOD'] == "GET":
-        form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+        data = execute_script_methods[target](environ)
+    elif environ['PATH_INFO'].startswith('/testcase/scripts/check/') and environ['REQUEST_METHOD'] == "GET":
         target = os.path.basename(environ['PATH_INFO'])
-        data = execute_script_methods[target](environ['QUERY_STRING'])
+        data = check_script_methods[target](environ)
     else:
         data = environ['PATH_INFO']
     start_response("200 OK", [
@@ -158,6 +180,13 @@ def AutoTest(environ):
                    }
 
     return render_template(template, templateVars)
+
+def new_task(environ):
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+    test_case_name = form['test_case_name'].value
+    task_name = form['task_name'].value
+    task_id = functions.DeviceDB.insert_task(test_case_name, task_name)
+    return str(task_id)
 
 def upload_extract(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
@@ -229,4 +258,3 @@ def render_template(template, vars):
 #data, devices = execute_query('test')
 #print data
 #allocation.release_devices(devices.values())
-execute_deploy('test')
