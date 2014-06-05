@@ -9,10 +9,10 @@ def run_sync(device_id, script, task_id = 0):
 def run_async(device_id, script, task_id = 0):
     return action_async(device_id, "EXECUTE", script, task_i)
 
-def deploy_sync(device_id, script, task_id = 0):
+def deploy_sync(device_id, script, task_id):
     return action_sync(device_id, "GET", script, task_id)
 
-def deploy_async(device_id, script, task_id = 0):
+def deploy_async(device_id, script, task_id):
     return action_async(device_id, "GET", script, task_id)
 
 def action_sync(device_id, action, script, task_id):

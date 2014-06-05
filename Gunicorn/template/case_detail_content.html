@@ -21,7 +21,6 @@
         <input name="fileUpLoad" type="file" id="tar_file" />
     </form>
     </div>
-
     <div>
         <button onclick="resolve_script('resolve','query');">解析查询条件 （⊙-⊙）</button>
         <button onclick="resolve_script('resolve','deploy');">解析部署设置 （⊙-⊙）</button>
@@ -54,8 +53,8 @@
         <button onclick="new_task();">新建任务</button>
     </div>
     <div>
-        <button onclick="operate_script('execute','query');">查询  (´･_･`)ノ</button>
-        <button onclick="operate_script('execute','release');">释放查询到的设备  (´･_･`)ノ</button>
+        <button onclick="operate_script('execute','query');">查询  (`･_･`)ノ</button>
+        <button onclick="operate_script('execute','release');">释放查询到的设备  (`･_･`)ノ</button>
         <button onclick="operate_script_async('execute','deploy');">部署  (´･_･`)ノ</button>
         <button onclick="operate_script_async('execute','steps');">按步骤执行测试  (´･_･`)ノ</button>
     </div>
@@ -108,28 +107,66 @@
             $("#test_case_resolve").html(result);
         });
     };
+    function check_operation_fields(){
+         var test_case_name = document.getElementById("lbl_test_case_name").textContent;
+         var task_id = document.getElementById("lbl_task_id").textContent;
+         var task_name = document.getElementById("lbl_task_name").textContent;
+        if (null_val(test_case_name)){
+            alert("请输入测试用例!");
+            return false;
+        }
+        if (null_val(task_name)){
+            alert("请输入测试任务名称!");
+            return false;
+        }
+        if (null_val(task_id)){
+            alert("请先新建测试任务!");
+            return false;
+        }
+        return true;
+    }
     function operate_script(operation, content_name){
-        var test_case_name = document.getElementById("lbl_test_case_name").textContent;
-        var task_id = document.getElementById("lbl_task_id").textContent;
-        url="/testcase/scripts/" + operation + "/" + content_name
-        $.post(url,{test_case_name:test_case_name, task_id:task_id},function(result){
-            $("#test_task_status").html(result);
-        });
+        if (check_operation_fields()){
+            var test_case_name = document.getElementById("lbl_test_case_name").textContent;
+            var task_id = document.getElementById("lbl_task_id").textContent;
+            url="/testcase/scripts/" + operation + "/" + content_name
+            $.post(url,{test_case_name:test_case_name, task_id:task_id},function(result){
+                $("#test_task_status").html(result);
+            });
+        }
     };
     function operate_script_async(operation, content_name){
-        var test_case_name = document.getElementById("lbl_test_case_name").textContent;
-        url="/testcase/scripts/" + operation + "/" + content_name
-        $.post(url,{test_case_name:test_case_name},function(result){
-            $("#test_task_status").html(result)
-            var dict = JSON.parse(result)
-            var task_id = dict['task_id']
-            setInterval(function(){
-                url = "/testcase/scripts/" + 'check' + "/" + content_name + "?task_id=" + task_id + "&test_case_name="+test_case_name
-                $.get(url, function(result){
-                    $("#test_case_resolve").html(result)
-                });
-            }, 5000);        });
-            $("#test_case_resolve").html(result);
+        if (check_operation_fields()){
+            var test_case_name = document.getElementById("lbl_test_case_name").textContent;
+            var task_id = document.getElementById("lbl_task_id").textContent;
+            url="/testcase/scripts/" + operation + "/" + content_name
+            $.post(url,{test_case_name:test_case_name, task_id: task_id},function(result){
+                var dict = JSON.parse(result)
+                var stop = dict['stop']
+                var content = dict['content']
+                if (!null_val(content)){
+                    $("#test_task_status").html(content);
+                }
+                if (!null_val(stop)){
+                    if (stop == 'false')
+                    {
+                        var interval_id = setInterval(function(){
+                            url = "/testcase/scripts/" + 'check' + "/" + content_name + "?task_id=" + task_id + "&test_case_name="+test_case_name+"&content_name="+content_name
+                            $.get(url, function(result){
+                            var dict = JSON.parse(result)
+                            var stop = dict['stop']
+                            var content = dict['content']
+                            $("#test_task_status").html(content)
+                            if (stop=='true')
+                            {
+                                clearInterval(interval_id);
+                            }
+                            });
+                        }, 5000);
+                    }
+                }
+            });
+        }
     }
 
 </script>

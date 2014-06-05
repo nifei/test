@@ -58,6 +58,30 @@ def insert_task(test_case, task_name):
     db.close()
     return row_id
 
+# @in: task_id
+# @out: dict
+def query_task(task_id):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("select TASK_NAME, TEST_CASE from Tasks where ID=%d"%task_id)
+    row = cursor.fetchone()
+    db.close()
+    return {'task name':row[0], 'test case':row[1]} if row and len(row)>0 else None
+
+# @in: task_id, action_type
+def query_task_actions(task_id, action_type):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("select DeviceInfo.ID, TaskDeviceRelation.ROLE, DeviceAction.FILE, DeviceInfo.IP, DeviceAction.STATUS from DeviceAction, DeviceInfo, TaskDeviceRelation where DeviceAction.MAC=DeviceInfo.MAC and TaskDeviceRelation.DEVICE_ID=DeviceInfo.ID and DeviceAction.TASK_ID=%s and TaskDeviceRelation.TASK_ID=%s and DeviceAction.ACTION='%s'"%(task_id, task_id, action_type))
+    rows = cursor.fetchall()
+    db.close()
+    return [{'Device Id':int(row[0])
+             , 'Role':row[1]
+             , 'File':row[2]
+             , 'IP':row[3]
+             , 'Status':row[4]
+             } for row in rows]
+
 # @in:  action_id
 # @out: status
 def query_action_status(action_id):

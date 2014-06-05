@@ -15,8 +15,9 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Gunicorn$DeviceDB.coverage" NAME="DeviceDB Coverage Results" MODIFIED="1401947503743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/functions" />
-    <SUITE FILE_PATH="coverage/Gunicorn$testcase.coverage" NAME="testcase Coverage Results" MODIFIED="1401891774474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Gunicorn$testcase.coverage" NAME="testcase Coverage Results" MODIFIED="1401967238411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Gunicorn$DeviceDB.coverage" NAME="DeviceDB Coverage Results" MODIFIED="1401966848480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/functions" />
+    <SUITE FILE_PATH="coverage/Gunicorn$Allocation.coverage" NAME="Allocation Coverage Results" MODIFIED="1401959866789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/functions" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -33,10 +34,10 @@
       <file leaf-file-name="testcase.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testcase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="42" selection-start="5216" selection-end="5216" vertical-scroll-proportion="2.104101" vertical-offset="1711" max-vertical-offset="7569">
+            <state line="127" column="0" selection-start="5334" selection-end="5334" vertical-scroll-proportion="0.7781753" vertical-offset="3335" max-vertical-offset="8091">
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#7173#7445#0" expanded="false" />
+                <element signature="e#8166#8438#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -45,14 +46,15 @@
       <file leaf-file-name="case_detail_content.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template/case_detail_content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="26" selection-start="3764" selection-end="3764" vertical-scroll-proportion="-22.5" vertical-offset="1030" max-vertical-offset="2813">
+            <state line="15" column="35" selection-start="394" selection-end="394" vertical-scroll-proportion="-7.2105265" vertical-offset="161" max-vertical-offset="4060">
               <folding>
-                <element signature="tag#div#3;tag#div#0" expanded="false" />
                 <element signature="n#style#0;n#textarea#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="tag#div#4;tag#div#0" expanded="false" />
+                <element signature="tag#ul#0;tag#div#4;tag#div#0" expanded="false" />
                 <element signature="n#style#0;n#textarea#0;n#div#3;n#div#1;n#!!top" expanded="true" />
-                <element signature="e#2389#2562#0" expanded="false" />
-                <element signature="e#2586#3390#0" expanded="false" />
+                <element signature="e#2388#2561#0" expanded="false" />
+                <element signature="e#2585#3389#0" expanded="false" />
+                <element signature="e#2769#2845#0" expanded="false" />
+                <element signature="e#2892#2968#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -61,25 +63,7 @@
       <file leaf-file-name="AutoTest.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template/AutoTest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="551">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="11" selection-start="258" selection-end="258" vertical-scroll-proportion="-4.5789475" vertical-offset="0" max-vertical-offset="638">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/TestCaseFiles/test/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1305">
+            <state line="11" column="34" selection-start="305" selection-end="305" vertical-scroll-proportion="-7.2105265" vertical-offset="45" max-vertical-offset="551">
               <folding />
             </state>
           </provider>
@@ -88,7 +72,7 @@
       <file leaf-file-name="AutoTest.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../AutoTest/AutoTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="0" selection-start="1611" selection-end="1611" vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="1479">
+            <state line="41" column="0" selection-start="1611" selection-end="1611" vertical-scroll-proportion="0.0" vertical-offset="877" max-vertical-offset="1479">
               <folding />
             </state>
           </provider>
@@ -97,7 +81,7 @@
       <file leaf-file-name="Allocation.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="4" selection-start="2453" selection-end="2453" vertical-scroll-proportion="0.0" vertical-offset="1431" max-vertical-offset="2059">
+            <state line="68" column="0" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0" vertical-offset="1412" max-vertical-offset="2117">
               <folding />
             </state>
           </provider>
@@ -106,7 +90,7 @@
       <file leaf-file-name="Actions.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions/Actions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="51" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0" vertical-offset="329" max-vertical-offset="1189">
+            <state line="3" column="6" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1189">
               <folding>
                 <element signature="e#20#31#0" expanded="true" />
               </folding>
@@ -117,47 +101,57 @@
       <file leaf-file-name="DeviceDB.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="39" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="5684">
+            <state line="70" column="0" selection-start="2129" selection-end="2129" vertical-scroll-proportion="0.0" vertical-offset="1595" max-vertical-offset="6467">
               <folding>
-                <marker date="1401947581033" expanded="true" signature="271:552" placeholder="..." />
-                <marker date="1401947581033" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
-                <marker date="1401947581033" expanded="true" signature="394:433" placeholder="delete from ..." />
-                <marker date="1401947581033" expanded="true" signature="695:752" placeholder="delete from ..." />
-                <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-                <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-                <marker date="1401947581033" expanded="true" signature="706:725" placeholder="insert into ..." />
-                <marker date="1401947581033" expanded="true" signature="1019:1096" placeholder="insert into ..." />
-                <marker date="1401947581033" expanded="true" signature="1019:1097" placeholder="insert into ..." />
-                <marker date="1401947581033" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
-                <marker date="1401947581033" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
-                <marker date="1401947581033" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
-                <marker date="1401947581033" expanded="true" signature="1608:1665" placeholder="insert into ..." />
-                <marker date="1401947581033" expanded="true" signature="1608:1668" placeholder="insert into ..." />
-                <marker date="1401947581033" expanded="true" signature="2130:2170" placeholder="select * fro..DeviceAction..." />
-                <marker date="1401947581033" expanded="true" signature="2494:2618" placeholder="Insert into ..." />
-                <marker date="1401947581033" expanded="true" signature="2494:2619" placeholder="Insert into ..." />
-                <marker date="1401947581033" expanded="true" signature="2930:2979" placeholder="Update Devic..." />
-                <marker date="1401947581033" expanded="true" signature="3178:3218" placeholder="Select MAC f..DeviceInfo..." />
-                <marker date="1401947581033" expanded="true" signature="3443:3478" placeholder="Select * fro..DeviceInfo..." />
-                <marker date="1401947581033" expanded="true" signature="3846:3885" placeholder="Select MAC f..DeviceInfo..." />
-                <marker date="1401947581033" expanded="true" signature="4183:4217" placeholder="select * fro..DeviceInfo..." />
-                <marker date="1401947581033" expanded="true" signature="4270:4295" placeholder="select * fro..DeviceInfo..." />
-                <marker date="1401947581033" expanded="true" signature="4690:4739" placeholder="select SHARE..DeviceInfo..." />
-                <marker date="1401947581033" expanded="true" signature="4935:4998" placeholder="update Devic..." />
-                <marker date="1401947581033" expanded="true" signature="5326:5375" placeholder="select SHARE..DeviceInfo..." />
-                <marker date="1401947581033" expanded="true" signature="5584:5635" placeholder="update Devic..." />
-                <marker date="1401947581033" expanded="true" signature="5905:5955" placeholder="select SHARE..DeviceInfo..." />
-                <marker date="1401947581033" expanded="true" signature="6072:6123" placeholder="update Devic..." />
-                <marker date="1401947581033" expanded="true" signature="6192:6256" placeholder="update Devic..." />
+                <marker date="1401967151484" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
+                <marker date="1401967151484" expanded="true" signature="394:433" placeholder="delete from ..." />
+                <marker date="1401967151484" expanded="true" signature="695:752" placeholder="delete from ..." />
+                <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+                <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+                <marker date="1401967151484" expanded="true" signature="706:725" placeholder="insert into ..." />
+                <marker date="1401967151484" expanded="true" signature="1019:1096" placeholder="insert into ..." />
+                <marker date="1401967151484" expanded="true" signature="1019:1097" placeholder="insert into ..." />
+                <marker date="1401967151484" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
+                <marker date="1401967151484" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
+                <marker date="1401967151484" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
+                <marker date="1401967151484" expanded="true" signature="1608:1665" placeholder="insert into ..." />
+                <marker date="1401967151484" expanded="true" signature="1608:1668" placeholder="insert into ..." />
+                <marker date="1401967151484" expanded="true" signature="1940:1988" placeholder="select TASK_..Tasks..." />
+                <marker date="1401967151484" expanded="true" signature="2303:2460" placeholder="select ID, S..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select ID, S..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select Devic..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="2303:2663" placeholder="select Devic..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="2303:2619" placeholder="select Devic..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="2303:2625" placeholder="select Devic..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="2303:2629" placeholder="select Devic..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="2893:7481" placeholder="select * fro..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="3237:3277" placeholder="select * fro..DeviceAction..." />
+                <marker date="1401967151484" expanded="true" signature="3601:3725" placeholder="Insert into ..." />
+                <marker date="1401967151484" expanded="true" signature="3601:3726" placeholder="Insert into ..." />
+                <marker date="1401967151484" expanded="true" signature="4037:4086" placeholder="Update Devic..." />
+                <marker date="1401967151484" expanded="true" signature="4285:4325" placeholder="Select MAC f..DeviceInfo..." />
+                <marker date="1401967151484" expanded="true" signature="4550:4585" placeholder="Select * fro..DeviceInfo..." />
+                <marker date="1401967151484" expanded="true" signature="4953:4992" placeholder="Select MAC f..DeviceInfo..." />
+                <marker date="1401967151484" expanded="true" signature="5290:5324" placeholder="select * fro..DeviceInfo..." />
+                <marker date="1401967151484" expanded="true" signature="5377:5402" placeholder="select * fro..DeviceInfo..." />
+                <marker date="1401967151484" expanded="true" signature="5797:5846" placeholder="select SHARE..DeviceInfo..." />
+                <marker date="1401967151484" expanded="true" signature="6042:6105" placeholder="update Devic..." />
+                <marker date="1401967151484" expanded="true" signature="6433:6482" placeholder="select SHARE..DeviceInfo..." />
+                <marker date="1401967151484" expanded="true" signature="6691:6742" placeholder="update Devic..." />
+                <marker date="1401967151484" expanded="true" signature="7012:7062" placeholder="select SHARE..DeviceInfo..." />
+                <marker date="1401967151484" expanded="true" signature="7179:7230" placeholder="update Devic..." />
+                <marker date="1401967151484" expanded="true" signature="7299:7363" placeholder="update Devic..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Context.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/Context.py">
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="696">
+            <state line="6" column="11" selection-start="258" selection-end="258" vertical-scroll-proportion="-4.5789475" vertical-offset="0" max-vertical-offset="638">
               <folding />
             </state>
           </provider>
@@ -177,9 +171,11 @@
         <option value="$USER_HOME$/TestCaseFiles/test/test.py" />
         <option value="$PROJECT_DIR$/scripts/test.py" />
         <option value="$PROJECT_DIR$/functions/Actions.py" />
-        <option value="$PROJECT_DIR$/functions/DeviceDB.py" />
         <option value="$PROJECT_DIR$/functions/Allocation.py" />
         <option value="$PROJECT_DIR$/template/case_detail_content.html" />
+        <option value="$PROJECT_DIR$/../fabfile.py" />
+        <option value="$PROJECT_DIR$/functions/Tasks.py" />
+        <option value="$PROJECT_DIR$/functions/DeviceDB.py" />
         <option value="$PROJECT_DIR$/testcase.py" />
       </list>
     </option>
@@ -296,7 +292,7 @@
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.DeviceDB">
+  <component name="RunManager" selected="Python.testcase">
     <configuration default="false" name="testcase" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -333,7 +329,30 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/functions/DeviceDB.py" />
       <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Allocation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/functions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Gunicorn" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/functions/Allocation.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -487,18 +506,37 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.testcase" />
       <item index="1" class="java.lang.String" itemvalue="Python.DeviceDB" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Allocation" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.DeviceDB" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testcase" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.testcase" />
+        <item index="1" class="java.lang.String" itemvalue="Python.DeviceDB" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Allocation" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="89fe1423-e80e-4d6e-87cf-51c974d74ccf" name="Default" comment="" />
@@ -514,17 +552,17 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17142858" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12668464" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12668464" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2520408" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2510204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -546,7 +584,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -555,7 +593,7 @@
         <state line="128" column="35" selection-start="5500" selection-end="5500" vertical-scroll-proportion="0.0" vertical-offset="3712" max-vertical-offset="6554">
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#7173#7445#0" expanded="false" />
+            <element signature="e#8166#8438#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -571,20 +609,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="30" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.0" vertical-offset="1218" max-vertical-offset="1711">
           <folding>
-            <element signature="tag#div#3;tag#div#0" expanded="false" />
             <element signature="n#style#0;n#textarea#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#4;tag#div#0" expanded="false" />
+            <element signature="tag#ul#0;tag#div#4;tag#div#0" expanded="false" />
             <element signature="n#style#0;n#textarea#0;n#div#3;n#div#1;n#!!top" expanded="true" />
-            <element signature="e#2389#2562#0" expanded="false" />
-            <element signature="e#2586#3390#0" expanded="false" />
+            <element signature="e#2388#2561#0" expanded="false" />
+            <element signature="e#2585#3389#0" expanded="false" />
+            <element signature="e#2769#2845#0" expanded="false" />
+            <element signature="e#2892#2968#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/TestCaseFiles/test/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="1131" max-vertical-offset="1305">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -615,36 +647,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="4234">
           <folding>
-            <marker date="1401947581033" expanded="true" signature="271:552" placeholder="..." />
-            <marker date="1401947581033" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
-            <marker date="1401947581033" expanded="true" signature="394:433" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:752" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="706:725" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1019:1096" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1019:1097" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1608:1665" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1608:1668" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2130:2170" placeholder="select * fro..DeviceAction..." />
-            <marker date="1401947581033" expanded="true" signature="2494:2618" placeholder="Insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2494:2619" placeholder="Insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2930:2979" placeholder="Update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="3178:3218" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="3443:3478" placeholder="Select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="3846:3885" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4183:4217" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4270:4295" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4690:4739" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4935:4998" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="5326:5375" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="5584:5635" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="5905:5955" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="6072:6123" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="6192:6256" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
+            <marker date="1401967151484" expanded="true" signature="394:433" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:752" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="706:725" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1019:1096" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1019:1097" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1608:1665" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1608:1668" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1940:1988" placeholder="select TASK_..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2460" placeholder="select ID, S..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select ID, S..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2663" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2619" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2625" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2629" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2893:7481" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="3237:3277" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="3601:3725" placeholder="Insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="3601:3726" placeholder="Insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="4037:4086" placeholder="Update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="4285:4325" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="4550:4585" placeholder="Select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="4953:4992" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5290:5324" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5377:5402" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5797:5846" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="6042:6105" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="6433:6482" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="6691:6742" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="7012:7062" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="7179:7230" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="7299:7363" placeholder="update Devic..." />
           </folding>
         </state>
       </provider>
@@ -654,7 +696,7 @@
         <state line="90" column="24" selection-start="3755" selection-end="3761" vertical-scroll-proportion="0.0" vertical-offset="2610" max-vertical-offset="6554">
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#7173#7445#0" expanded="false" />
+            <element signature="e#8166#8438#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -670,20 +712,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="30" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.0" vertical-offset="906" max-vertical-offset="1711">
           <folding>
-            <element signature="tag#div#3;tag#div#0" expanded="false" />
             <element signature="n#style#0;n#textarea#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#4;tag#div#0" expanded="false" />
+            <element signature="tag#ul#0;tag#div#4;tag#div#0" expanded="false" />
             <element signature="n#style#0;n#textarea#0;n#div#3;n#div#1;n#!!top" expanded="true" />
-            <element signature="e#2389#2562#0" expanded="false" />
-            <element signature="e#2586#3390#0" expanded="false" />
+            <element signature="e#2388#2561#0" expanded="false" />
+            <element signature="e#2585#3389#0" expanded="false" />
+            <element signature="e#2769#2845#0" expanded="false" />
+            <element signature="e#2892#2968#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/TestCaseFiles/test/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="203">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,36 +750,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="4234">
           <folding>
-            <marker date="1401947581033" expanded="true" signature="271:552" placeholder="..." />
-            <marker date="1401947581033" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
-            <marker date="1401947581033" expanded="true" signature="394:433" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:752" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="706:725" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1019:1096" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1019:1097" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1608:1665" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1608:1668" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2130:2170" placeholder="select * fro..DeviceAction..." />
-            <marker date="1401947581033" expanded="true" signature="2494:2618" placeholder="Insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2494:2619" placeholder="Insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2930:2979" placeholder="Update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="3178:3218" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="3443:3478" placeholder="Select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="3846:3885" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4183:4217" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4270:4295" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4690:4739" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4935:4998" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="5326:5375" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="5584:5635" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="5905:5955" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="6072:6123" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="6192:6256" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
+            <marker date="1401967151484" expanded="true" signature="394:433" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:752" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="706:725" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1019:1096" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1019:1097" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1608:1665" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1608:1668" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1940:1988" placeholder="select TASK_..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2460" placeholder="select ID, S..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select ID, S..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2663" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2619" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2625" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2629" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2893:7481" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="3237:3277" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="3601:3725" placeholder="Insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="3601:3726" placeholder="Insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="4037:4086" placeholder="Update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="4285:4325" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="4550:4585" placeholder="Select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="4953:4992" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5290:5324" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5377:5402" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5797:5846" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="6042:6105" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="6433:6482" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="6691:6742" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="7012:7062" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="7179:7230" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="7299:7363" placeholder="update Devic..." />
           </folding>
         </state>
       </provider>
@@ -753,7 +799,7 @@
         <state line="106" column="47" selection-start="4282" selection-end="4282" vertical-scroll-proportion="0.0" vertical-offset="261" max-vertical-offset="6032">
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#7173#7445#0" expanded="false" />
+            <element signature="e#8166#8438#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -762,20 +808,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="30" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.0" vertical-offset="906" max-vertical-offset="1711">
           <folding>
-            <element signature="tag#div#3;tag#div#0" expanded="false" />
             <element signature="n#style#0;n#textarea#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#4;tag#div#0" expanded="false" />
+            <element signature="tag#ul#0;tag#div#4;tag#div#0" expanded="false" />
             <element signature="n#style#0;n#textarea#0;n#div#3;n#div#1;n#!!top" expanded="true" />
-            <element signature="e#2389#2562#0" expanded="false" />
-            <element signature="e#2586#3390#0" expanded="false" />
+            <element signature="e#2388#2561#0" expanded="false" />
+            <element signature="e#2585#3389#0" expanded="false" />
+            <element signature="e#2769#2845#0" expanded="false" />
+            <element signature="e#2892#2968#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/TestCaseFiles/test/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="22" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="1305">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,36 +846,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="4234">
           <folding>
-            <marker date="1401947581033" expanded="true" signature="271:552" placeholder="..." />
-            <marker date="1401947581033" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
-            <marker date="1401947581033" expanded="true" signature="394:433" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:752" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="706:725" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1019:1096" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1019:1097" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1608:1665" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1608:1668" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2130:2170" placeholder="select * fro..DeviceAction..." />
-            <marker date="1401947581033" expanded="true" signature="2494:2618" placeholder="Insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2494:2619" placeholder="Insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2930:2979" placeholder="Update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="3178:3218" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="3443:3478" placeholder="Select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="3846:3885" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4183:4217" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4270:4295" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4690:4739" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4935:4998" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="5326:5375" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="5584:5635" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="5905:5955" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="6072:6123" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="6192:6256" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
+            <marker date="1401967151484" expanded="true" signature="394:433" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:752" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="706:725" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1019:1096" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1019:1097" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1608:1665" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1608:1668" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1940:1988" placeholder="select TASK_..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2460" placeholder="select ID, S..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select ID, S..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2663" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2619" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2625" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2629" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2893:7481" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="3237:3277" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="3601:3725" placeholder="Insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="3601:3726" placeholder="Insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="4037:4086" placeholder="Update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="4285:4325" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="4550:4585" placeholder="Select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="4953:4992" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5290:5324" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5377:5402" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5797:5846" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="6042:6105" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="6433:6482" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="6691:6742" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="7012:7062" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="7179:7230" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="7299:7363" placeholder="update Devic..." />
           </folding>
         </state>
       </provider>
@@ -855,14 +905,40 @@
         <state line="2" column="8" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2407" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../fabfile.py">
+    <entry file="file://$PROJECT_DIR$/scripts/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="16" selection-start="268" selection-end="268" vertical-scroll-proportion="0.21345952" vertical-offset="0" max-vertical-offset="11252" />
+        <state line="37" column="0" selection-start="624" selection-end="624" vertical-scroll-proportion="0.7560463" vertical-offset="354" max-vertical-offset="1305">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/TestCaseFiles/test/test.py">
+    <entry file="file://$PROJECT_DIR$/../fabfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="1131" max-vertical-offset="1305">
+        <state line="9" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="0.37021276" vertical-offset="0" max-vertical-offset="10933">
+          <folding>
+            <element signature="e#23#60#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/case_detail_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="35" selection-start="394" selection-end="394" vertical-scroll-proportion="-7.2105265" vertical-offset="161" max-vertical-offset="4060">
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="tag#ul#0;tag#div#4;tag#div#0" expanded="false" />
+            <element signature="n#style#0;n#textarea#0;n#div#3;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#2388#2561#0" expanded="false" />
+            <element signature="e#2585#3389#0" expanded="false" />
+            <element signature="e#2769#2845#0" expanded="false" />
+            <element signature="e#2892#2968#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/AutoTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="34" selection-start="305" selection-end="305" vertical-scroll-proportion="-7.2105265" vertical-offset="45" max-vertical-offset="551">
           <folding />
         </state>
       </provider>
@@ -876,62 +952,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="4" selection-start="2453" selection-end="2453" vertical-scroll-proportion="0.0" vertical-offset="1431" max-vertical-offset="2059">
+        <state line="68" column="0" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0" vertical-offset="1412" max-vertical-offset="2117">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Actions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="51" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1189">
+        <state line="3" column="6" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1189">
           <folding>
             <element signature="e#20#31#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="39" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="5684">
-          <folding>
-            <marker date="1401947581033" expanded="true" signature="271:552" placeholder="..." />
-            <marker date="1401947581033" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
-            <marker date="1401947581033" expanded="true" signature="394:433" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:752" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="695:740" placeholder="delete from ..." />
-            <marker date="1401947581033" expanded="true" signature="706:725" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1019:1096" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1019:1097" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
-            <marker date="1401947581033" expanded="true" signature="1608:1665" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="1608:1668" placeholder="insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2130:2170" placeholder="select * fro..DeviceAction..." />
-            <marker date="1401947581033" expanded="true" signature="2494:2618" placeholder="Insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2494:2619" placeholder="Insert into ..." />
-            <marker date="1401947581033" expanded="true" signature="2930:2979" placeholder="Update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="3178:3218" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="3443:3478" placeholder="Select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="3846:3885" placeholder="Select MAC f..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4183:4217" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4270:4295" placeholder="select * fro..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4690:4739" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="4935:4998" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="5326:5375" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="5584:5635" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="5905:5955" placeholder="select SHARE..DeviceInfo..." />
-            <marker date="1401947581033" expanded="true" signature="6072:6123" placeholder="update Devic..." />
-            <marker date="1401947581033" expanded="true" signature="6192:6256" placeholder="update Devic..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions/Context.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="696">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -942,40 +973,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/test.py">
+    <entry file="file://$PROJECT_DIR$/functions/Tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="624" selection-end="624" vertical-scroll-proportion="0.7560463" vertical-offset="354" max-vertical-offset="1305">
+        <state line="2" column="0" selection-start="21" selection-end="21" vertical-scroll-proportion="0.082269505" vertical-offset="0" max-vertical-offset="705">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/AutoTest.html">
+    <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="951">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/case_detail_content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="26" selection-start="3764" selection-end="3764" vertical-scroll-proportion="-22.5" vertical-offset="1030" max-vertical-offset="2813">
+        <state line="70" column="0" selection-start="2129" selection-end="2129" vertical-scroll-proportion="0.0" vertical-offset="1595" max-vertical-offset="6467">
           <folding>
-            <element signature="tag#div#3;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#textarea#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#4;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#textarea#0;n#div#3;n#div#1;n#!!top" expanded="true" />
-            <element signature="e#2389#2562#0" expanded="false" />
-            <element signature="e#2586#3390#0" expanded="false" />
+            <marker date="1401967151484" expanded="true" signature="372:433" placeholder="select DEVIC..TaskDeviceRelation..." />
+            <marker date="1401967151484" expanded="true" signature="394:433" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:752" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="695:740" placeholder="delete from ..." />
+            <marker date="1401967151484" expanded="true" signature="706:725" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1019:1096" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1019:1097" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1460" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1463" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1404:1464" placeholder="select ID fr..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="1608:1665" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1608:1668" placeholder="insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="1940:1988" placeholder="select TASK_..Tasks..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2460" placeholder="select ID, S..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select ID, S..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2496" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2663" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2619" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2598" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2625" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2303:2629" placeholder="select Devic..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="2893:7481" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="3237:3277" placeholder="select * fro..DeviceAction..." />
+            <marker date="1401967151484" expanded="true" signature="3601:3725" placeholder="Insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="3601:3726" placeholder="Insert into ..." />
+            <marker date="1401967151484" expanded="true" signature="4037:4086" placeholder="Update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="4285:4325" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="4550:4585" placeholder="Select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="4953:4992" placeholder="Select MAC f..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5290:5324" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5377:5402" placeholder="select * fro..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="5797:5846" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="6042:6105" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="6433:6482" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="6691:6742" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="7012:7062" placeholder="select SHARE..DeviceInfo..." />
+            <marker date="1401967151484" expanded="true" signature="7179:7230" placeholder="update Devic..." />
+            <marker date="1401967151484" expanded="true" signature="7299:7363" placeholder="update Devic..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testcase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="42" selection-start="5216" selection-end="5216" vertical-scroll-proportion="2.104101" vertical-offset="1711" max-vertical-offset="7569">
+        <state line="127" column="0" selection-start="5334" selection-end="5334" vertical-scroll-proportion="0.7781753" vertical-offset="3335" max-vertical-offset="8091">
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#7173#7445#0" expanded="false" />
+            <element signature="e#8166#8438#0" expanded="false" />
           </folding>
         </state>
       </provider>

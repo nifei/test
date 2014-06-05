@@ -1,0 +1,12 @@
+delete from DeviceInfo;
+insert into DeviceInfo values ('', 'Online', '1.1.1.1', 'MAC-1', 'yidong', 'None', 1, 'PID1', 0);
+insert into DeviceInfo values ('', 'Online', '2.1.1.1', 'MAC-2', 'yidong', 'Addr', 2, 'PID2', 0);
+insert into DeviceInfo values ('', 'Online', '3.1.1.1', 'MAC-3', 'yidong', 'Cone', 3, 'PID3', 0);
+insert into DeviceInfo values ('', 'Online', '4.1.1.1', 'MAC-4', 'yidong', 'Addr', 4, 'PID4', 0);
+insert into DeviceInfo values ('', 'Online', '5.1.1.1', 'MAC-5', 'liantong', 'Symm', 5, 'PID5', 0);
+insert into DeviceInfo values ('', 'Online', '6.1.1.1', 'MAC-6', 'liantong', 'Addr', 6, 'PID6', 0);
+insert into DeviceInfo values ('', 'Online', '7.1.1.1', 'MAC-7', 'liantong', 'None', 7, 'PID7', 0);
+insert into DeviceInfo values ('', 'Online', '8.1.1.1', 'MAC-8', 'dianxin', 'Cone', 8, 'PID8', 0);
+insert into DeviceInfo values ('', 'Online', '9.1.1.1', 'MAC-9', 'dianxin', 'Cone', 9, 'PID9', 0);
+insert into DeviceInfo values ('', 'Online', '0.1.1.1', 'MAC-0', 'dianxin', 'Addr', 0, 'PID0', 0);
+insert into DeviceInfo values ('', 'Online', '1.2.1.1', 'MAC-11', 'dianxin', 'Cone', 11, 'PID0', 0);

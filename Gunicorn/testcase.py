@@ -7,8 +7,8 @@ import json
 import inspect
 import functions.Allocation, functions.Actions
 import functions.DeviceDB
-import functions.Context
 import urlparse
+import threading
 actions = functions.Actions
 allocation = functions.Allocation
 
@@ -89,37 +89,44 @@ def execute_query(environ):
 def execute_deploy(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
     test_case_name = form['test_case_name'].value
+    task_id = int(form['task_id'].value)
 
-    context = functions.Context.name_to_context(test_case_name)
-    occupied_devices = context['occupied_devices']
+    occupied_devices = functions.DeviceDB.query_device_task_relation(task_id)
     script_module = importlib.import_module('scripts.' + test_case_name)
-    test_attr = getattr(script_module, 'deploy_dict')
+    deploy_dict = getattr(script_module, 'deploy_dict')
     data = {}
     for (device_name, device_id) in occupied_devices.items():
-        tar = test_attr[device_name]
+        tar = deploy_dict[device_name]
         xtar_sh = UploadPath + test_case_name + '/' + 'xtar' + '_' + tar + '.sh'
         with open(xtar_sh, 'w+') as xtar_sh_file:
             xtar_sh_file.write('tar -xvzf %s ./%s' % (tar, test_case_name))
-        actions.deploy_async(device_id, test_case_name + '/' + tar)
-    data['occupied_devices'] = occupied_devices
-    data['task_id'] = '12345'
-    data['test_case_name'] = test_case_name
+        actions.deploy_async(device_id, test_case_name + '/' + tar, task_id)
+    data['content'] = json.dumps(occupied_devices, indent=4, separators=(',', ':'))
+    data['stop'] = 'false' if len(occupied_devices) > 0 else 'true'
     return json.dumps(data, indent=4, separators=(',', ':'))
 
 def execute_steps(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
-    test_case_name = form['test_case_name'].value
+    task_id = int(form['task_id'].value)
+    return execute_task(task_id)
 
+def execute_task(task_id):
+    task_info = functions.DeviceDB.query_task(task_id)
+    task_name = task_info['task name']
+    test_case_name = task_info['test case']
     script_module = importlib.import_module('scripts.' + test_case_name)
     step_list = getattr(script_module, 'step_list')
-    for step in step_list:
-        step()
-
+    lock=threading.Lock()
+    threading.Thread(target=run_task, args=(task_id, step_list), name='thread-'+test_case_name+task_name)
     return "Success"
+
+def run_task(task_id, steps):
+    occupied_devices = functions.DeviceDB.query_device_task_relation(task_id)
+    for step in steps:
+        step()
 
 def execute_release(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
-    test_case_name = form['test_case_name'].value
     task_id = int(form['task_id'].value)
     if not task_id or task_id <= 0 or task_id == None:
         return "invalid task id"
@@ -135,7 +142,15 @@ execute_script_methods = {
 
 def check_deploy(environ):
     query_dict = urlparse.parse_qs(environ['QUERY_STRING'])
-    return json.dumps(query_dict)
+    task_id = int(query_dict['task_id'][0])
+    actions_status = functions.DeviceDB.query_task_actions(task_id, 'GET')
+    formated_string = 'Device Id\tRole\tFile\tIP\tStatus\n'
+    stop = 'true'
+    for action_status in actions_status:
+        formated_string += '%d\t%s\t%s\t%s\t%s\n'%(action_status['Device Id'], action_status['Role'], action_status['File'], action_status['IP'], action_status['Status'])
+        if action_status['Status'] in ('PENDING','RUNNING'):
+            stop = 'false'
+    return json.dumps({'stop':stop, 'content':formated_string}, indent=4, separators=(',', ':'))
 
 check_script_methods = {
     'deploy': check_deploy
@@ -164,6 +179,7 @@ def app(environ, start_response):
         data = check_script_methods[target](environ)
     else:
         data = environ['PATH_INFO']
+        print data
     start_response("200 OK", [
         ("Content-Type", "text/html;charset=utf8"),
         ("Content-Length", str(len(data))),
