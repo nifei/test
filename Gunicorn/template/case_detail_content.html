@@ -23,7 +23,11 @@
     </div>
     <div>
         <button onclick="resolve_script('resolve','query');">解析查询条件 （⊙-⊙）</button>
+    </div>
+    <div>
         <button onclick="resolve_script('resolve','deploy');">解析部署设置 （⊙-⊙）</button>
+    </div>
+    <div>
         <button onclick="resolve_script('resolve','steps');">解析执行步骤 （⊙-⊙）</button>
     </div>
     <div>
@@ -55,8 +59,13 @@
     <div>
         <button onclick="operate_script('execute','query');">查询  (`･_･`)ノ</button>
         <button onclick="operate_script('execute','release');">释放查询到的设备  (`･_･`)ノ</button>
+    </div>
+    <div>
         <button onclick="operate_script_async('execute','deploy');">部署  (´･_･`)ノ</button>
-        <button onclick="operate_script_async('execute','steps');">按步骤执行测试  (´･_･`)ノ</button>
+    </div>
+    <div>
+        <button onclick="start();" id='btn_start_pause'>开始</button>
+        <button onclick="stop();" id='btn_stop' disabled="true">停止</button>
     </div>
     <div>
         <textarea id="test_task_status" style="position: relative; height:60vh; width: 100%;" readonly="readonly"></textarea>
@@ -135,7 +144,38 @@
             });
         }
     };
-    function operate_script_async(operation, content_name){
+    function stop(){
+        operate_script_async('execute','stop','NOT RUNNING,FINISHED');
+        document.getElementById("btn_start_pause").innerHTML = '开始'
+        document.getElementById('btn_stop').disabled = true
+    }
+    function start(){
+        var text = document.getElementById("btn_start_pause").textContent;
+        function start_callback(status){
+            if (status == 'FINISHED' || status == 'NOT RUNNING') {
+                // disable stop
+                document.getElementById('btn_stop').disabled = true
+                document.getElementById("btn_start_pause").innerHTML = '开始'
+            } else if (status == 'PAUSED') {
+                document.getElementById('btn_start_pause').innerHTML = '继续';
+            }
+        }
+        if (text=='开始'){
+            // enable stop
+            document.getElementById('btn_stop').disabled = false
+            operate_script_async('execute','start','FINISHED', start_callback);
+            document.getElementById("btn_start_pause").innerHTML = '暂停'
+        }
+        else if (text == '暂停'){
+            operate_script_async('execute','pause','PAUSED,FINISHED', start_callback);
+            document.getElementById('btn_start_pause').innerHTML = '继续'
+        }
+        else if (text == '继续'){
+            operate_script_async('execute','resume','FINISHED', start_callback);
+            document.getElementById('btn_start_pause').innerHTML = '暂停'
+        }
+    }
+    function operate_script_async(operation, content_name, expected_result, callback){
         if (check_operation_fields()){
             var test_case_name = document.getElementById("lbl_test_case_name").textContent;
             var task_id = document.getElementById("lbl_task_id").textContent;
@@ -151,18 +191,27 @@
                     if (stop == 'false')
                     {
                         var interval_id = setInterval(function(){
-                            url = "/testcase/scripts/" + 'check' + "/" + content_name + "?task_id=" + task_id + "&test_case_name="+test_case_name+"&content_name="+content_name
+                            url = "/testcase/scripts/" + 'check' + "/" + content_name + "?task_id=" + task_id + "&test_case_name="+test_case_name+"&content_name="+content_name+"&expected_result="+expected_result;
                             $.get(url, function(result){
-                            var dict = JSON.parse(result)
-                            var stop = dict['stop']
-                            var content = dict['content']
-                            $("#test_task_status").html(content)
-                            if (stop=='true')
-                            {
-                                clearInterval(interval_id);
-                            }
+                                var dict = JSON.parse(result)
+                                var stop = dict['stop']
+                                var content = dict['content']
+                                $("#test_task_status").html(content)
+                                if (stop=='true')
+                                {
+                                    clearInterval(interval_id);
+                                    if (callback)
+                                    {
+                                        callback(dict['callback']);
+                                    }
+                                }
                             });
-                        }, 5000);
+                        }, 1000);
+                    }
+                } else {
+                    if (callback)
+                    {
+                        callback(dict['callback'])
                     }
                 }
             });

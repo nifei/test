@@ -8,7 +8,8 @@ import inspect
 import functions.Allocation, functions.Actions
 import functions.DeviceDB
 import urlparse
-import threading
+import subprocess
+import Tasks
 actions = functions.Actions
 allocation = functions.Allocation
 
@@ -105,21 +106,37 @@ def execute_deploy(environ):
     data['stop'] = 'false' if len(occupied_devices) > 0 else 'true'
     return json.dumps(data, indent=4, separators=(',', ':'))
 
-def execute_steps(environ):
+def execute_start(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
     task_id = int(form['task_id'].value)
-    return execute_task(task_id)
+    subprocess.call("python ./Tasks.py start %s &"%task_id, shell=True)
+    return json.dumps({"stop":"false", "content":"Test task starts. "})
 
-import subprocess
-def execute_task(task_id):
-    #run_task(task_id)
-    print "execute_task"
-    subprocess.call("python run_steps.py", shell=True)
-#    lock=threading.Lock()
-#    threading.Thread(target=run_task, args=(task_id, step_list), name='thread-'+test_case_name+task_name)
-    return "Success"
+def execute_stop(environ):
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+    task_id = int(form['task_id'].value)
+    task_info = functions.DeviceDB.query_task(task_id)
+    if task_info['status'] != 'RUNNING':
+        functions.DeviceDB.update_task_status(task_id, 'NOT RUNNING')
+        stop = 'true'
+        content = 'task is NOT RUNNING'
+    else:
+        functions.DeviceDB.update_task_flag(task_id, 'STOP_FLAG', True)
+        stop = 'false'
+        content = 'stopping...'
+    return json.dumps({'stop':stop, 'content': content})
 
-execute_task(41)
+def execute_pause(environ):
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+    task_id = int(form['task_id'].value)
+    functions.DeviceDB.update_task_flag(task_id, 'PAUSE_FLAG', True)
+    return json.dumps({'stop':'false', 'content': 'pausing...'})
+
+def execute_resume(environ):
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+    task_id = int(form['task_id'].value)
+    subprocess.call("python ./Tasks.py resume %s &"%task_id, shell=True)
+    return json.dumps({"stop":"false", "content":"Test task continued. "})
 
 def execute_release(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
@@ -133,7 +150,10 @@ execute_script_methods = {
     'query': execute_query,
     'release': execute_release,
     'deploy': execute_deploy,
-    'steps': execute_steps
+    'start': execute_start,
+    'stop': execute_stop,
+    'pause': execute_pause,
+    'resume': execute_resume
 }
 
 def check_deploy(environ):
@@ -148,8 +168,52 @@ def check_deploy(environ):
             stop = 'false'
     return json.dumps({'stop':stop, 'content':formated_string}, indent=4, separators=(',', ':'))
 
+def check_status(environ):
+    query_dict = urlparse.parse_qs(environ['QUERY_STRING'])
+    task_id = int(query_dict['task_id'][0])
+    expected_status = query_dict['expected_result'][0].split(',')
+    task_info = functions.DeviceDB.query_task(task_id)
+    if task_info:
+        if task_info['status'] in expected_status:
+            stop = 'true'
+            content = 'task is '+ task_info['status']
+        else:
+            print 'current:' + task_info['status']
+            print expected_status
+            stop = 'false'
+            content = 'waiting...'
+    else:
+        stop = 'true'
+        content = 'task not found'
+    return json.dumps({'stop':stop, 'content':content, 'callback':task_info['status']})
+
+def check_steps(environ):
+    query_dict = urlparse.parse_qs(environ['QUERY_STRING'])
+    task_id = int(query_dict['task_id'][0])
+    task_info = functions.DeviceDB.query_task(task_id)
+    if task_info:
+        current_step = task_info['current step']
+        if task_info['status'] != 'RUNNING':
+            formatted_string = 'task is ' + task_info['status'] + '\n'
+            stop = 'true'
+        else:
+            formatted_string = 'current step:%s\n'%current_step
+            actions_status = functions.DeviceDB.query_task_actions(task_id, 'EXECUTE')
+            formatted_string += 'Device Id\tRole\tFile\tIP\tStatus\n'
+            for action_status in actions_status:
+                formatted_string += '%d\t%s\t%s\t%s\t%s\n'%(action_status['Device Id'], action_status['Role'], action_status['File'], action_status['IP'], action_status['Status'])
+            stop = 'false'
+    else:
+        stop = 'true'
+        formatted_string = 'invalid task id'
+    return json.dumps({'stop':stop, 'content':formatted_string, 'callback':task_info['status']})
+
 check_script_methods = {
-    'deploy': check_deploy
+    'deploy': check_deploy,
+    'start': check_steps,
+    'pause': check_status,
+    'stop': check_status,
+    'resume': check_steps
 }
 
 def app(environ, start_response):

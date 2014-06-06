@@ -52,21 +52,47 @@ def insert_task(test_case, task_name):
     if len(rows) > 0:
         row_id = int(rows[0][0])
     else:
-        cursor.execute("insert into Tasks (TASK_NAME, TEST_CASE) values ('%s', '%s')"%(task_name, test_case))
+        cursor.execute("insert into Tasks (TASK_NAME, TEST_CASE, CURRENT_STEP) values ('%s', '%s', %d)"%(task_name, test_case, -1))
         row_id = int(cursor.lastrowid)
         db.commit()
     db.close()
     return row_id
+
+def update_task_flag(task_id, flag_name, flag_value):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("update Tasks set %s=%s where ID=%d"%(flag_name, 'TRUE' if flag_value else 'FALSE',  task_id))
+    db.commit()
+    db.close()
+    return True
+
+def update_task_step(task_id, step):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("update Tasks set CURRENT_STEP=%d where ID=%d"%(step, task_id))
+    db.commit()
+    db.close()
+    return True
+
+def update_task_status(task_id, status):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("update Tasks set STATUS='%s' where ID=%d"%(status, task_id))
+    db.commit()
+    db.close()
+    return True
+
+update_task_status(1, 'RUNNING')
 
 # @in: task_id
 # @out: dict
 def query_task(task_id):
     db = MySQLdb.connect(host, user, password, dbname)
     cursor = db.cursor()
-    cursor.execute("select TASK_NAME, TEST_CASE from Tasks where ID=%d"%task_id)
+    cursor.execute("select TASK_NAME, TEST_CASE, CURRENT_STEP, STOP_FLAG, PAUSE_FLAG, STATUS from Tasks where ID=%d"%task_id)
     row = cursor.fetchone()
     db.close()
-    return {'task name':row[0], 'test case':row[1]} if row and len(row)>0 else None
+    return {'task name':row[0], 'test case':row[1], 'current step':int(row[2]), 'stop flag':bool(row[3]), 'pause flag':bool(row[4]), 'status':row[5]} if row and len(row)>0 else None
 
 # @in: task_id, action_type
 def query_task_actions(task_id, action_type):
