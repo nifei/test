@@ -27,6 +27,19 @@ deploy_dict = {
     'client2': 'dev2.tar.gz'
 }
 
+# TAOWEN
+# implement class Task
+# usage:
+# task = Task(task_id)
+# step[i](task)
+# function signature:
+# def Task.Run(role, script):
+#     id = functions.query_task_device_relations [...]
+#     functions.Actions.run(id, script)
+
+#def taret_function(Task):
+#    Task.Run('server', 'server.sh')
+
 def start_server():
     print "start_server"
 

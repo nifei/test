@@ -9,7 +9,7 @@ import functions.Allocation, functions.Actions
 import functions.DeviceDB
 import urlparse
 import subprocess
-import Tasks
+
 actions = functions.Actions
 allocation = functions.Allocation
 
@@ -60,6 +60,7 @@ def execute_query(environ):
     allocation.release_task_devices(task_id)
 
     script_module = importlib.import_module('scripts.' + test_case_name)
+
     query_dict = getattr(script_module, 'query_dict')
     all_found = True
     occupied_devices = {}

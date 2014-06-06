@@ -1,1 +1,1 @@
-update DeviceAction set STATUS="OK"
+update DeviceAction set STATUS="OK";
