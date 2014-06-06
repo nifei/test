@@ -27,22 +27,19 @@ deploy_dict = {
     'client2': 'dev2.tar.gz'
 }
 
-def start_server():
-    print "start_server"
+def start_server(i):
+    i.log('start_server')
+    i.run_sync('server', 'start')
 
-def start_client():
-    print "start_client"
+def start_client(i):
+    i.log('start_client')
+    i.wait(
+        i.run_async('client1', 'start'),
+        i.run_async('client2', 'start')
+    )
 
-def end_server():
-    print "end_server"
+def end_server(i):
+    i.log('end_server')
+    i.run_sync('server', 'end')
 
-def step_3():
-    print "step 3"
-
-def step_4():
-    print "step 4"
-
-def step_5():
-    print "step 5"
-
-step_list = [ start_server, start_client, end_server, step_3, step_4, step_5 ]
+step_list = [ start_server, start_client, end_server ]

@@ -1,6 +1,7 @@
 __author__ = 'test'
 
 import functions.DeviceDB
+import functions.Actions
 import importlib
 import sys
 import time
@@ -47,6 +48,7 @@ def start(task_id):
     functions.DeviceDB.update_task_flag(task_id, 'STOP_FLAG', False)
     functions.DeviceDB.update_task_flag(task_id, 'PAUSE_FLAG', False)
     occupied_devices = functions.DeviceDB.query_device_task_relation(task_id)
+    task_action_executor = TaskActionExecutor(task_id, occupied_devices)
     broken = False
     for i in range(len(steps)):
         task_info = functions.DeviceDB.query_task(task_id)
@@ -60,11 +62,34 @@ def start(task_id):
             broken = True
             break
         functions.DeviceDB.update_task_step(task_id, i)
-        steps[i]()
+        steps[i](task_action_executor)
         time.sleep(3)
     if not broken:
         functions.DeviceDB.update_task_step(task_id, -1)
         functions.DeviceDB.update_task_status(task_id, 'FINISHED')
+
+class TaskActionExecutor(object):
+    def __init__(self, task_id, occupied_devices):
+        self.task_id = task_id
+        self.occupied_devices = occupied_devices
+
+    def run_sync(self, device_name, script):
+        device_id = self.query_device_id(device_name)
+        return functions.Actions.run_sync(device_id, script, self.task_id)
+
+    def run_async(self, device_name, script):
+        device_id = self.query_device_id(device_name)
+        return functions.Actions.run_async(device_id, script, self.task_id)
+
+    def wait(self, *action_ids):
+        for action_id in action_ids:
+            functions.Actions.wait(action_id)
+
+    def log(self, msg):
+        print(msg)
+
+    def query_device_id(self, device_name):
+        return self.occupied_devices[device_name]
 
 operations={
     'start':start,

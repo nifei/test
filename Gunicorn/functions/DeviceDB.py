@@ -89,7 +89,8 @@ update_task_status(1, 'RUNNING')
 def query_task(task_id):
     db = MySQLdb.connect(host, user, password, dbname)
     cursor = db.cursor()
-    cursor.execute("select TASK_NAME, TEST_CASE, CURRENT_STEP, STOP_FLAG, PAUSE_FLAG, STATUS from Tasks where ID=%d"%task_id)
+    sql = "select TASK_NAME, TEST_CASE, CURRENT_STEP, STOP_FLAG, PAUSE_FLAG, STATUS from Tasks where ID=%d"%task_id
+    cursor.execute(sql)
     row = cursor.fetchone()
     db.close()
     return {'task name':row[0], 'test case':row[1], 'current step':int(row[2]), 'stop flag':bool(row[3]), 'pause flag':bool(row[4]), 'status':row[5]} if row and len(row)>0 else None
@@ -131,8 +132,9 @@ def insert_action(device_id, action, script, task_id):
     mac = query_device_mac(device_id)
     db = MySQLdb.connect(host, user, password, dbname)
     cursor = db.cursor()
-    cursor.execute("Insert into DeviceAction (ACTION, FILE, STATUS, MAC, TASK_ID) "
-                   "values('%s', '%s', 'PENDING', '%s', '%d')" % (action, script, mac, task_id))
+    sql = "Insert into DeviceAction (ACTION, FILE, STATUS, MAC, TASK_ID) \
+                   values('%s', '%s', 'PENDING', '%s', '%d')" % (action, script, mac, task_id)
+    cursor.execute(sql)
     action_id = int(cursor.lastrowid)
     db.commit()
     db.close()
