@@ -16,26 +16,27 @@ query_cone = {
 }
 
 query_dict = {
-    'server': query_none
+    'server': query_none,
+    'client': query_cone,
 }
 
 deploy_dict = {
-    'server': 'dev1.tar.gz'
+    'server': 'server',
+    'client': 'client'
 }
 
 def start_server(i):
     i.log('start_server')
-    i.run_sync('server', 'start.sh')
+    i.run_sync('server', 'pair/server/start.sh')
 
-#def start_client(i):
-#    i.log('start_client')
-#    i.wait(
-#        i.run_async('client1', 'start'),
-#        i.run_async('client2', 'start')
-#    )
-#
+def start_client(i):
+    i.log('start_client')
+    i.wait(
+        i.run_async('client', 'pair/client/start.sh'),
+    )
+
 #def end_server(i):
 #    i.log('end_server')
 #    i.run_sync('server', 'end')
 
-step_list = [ start_server, start_client, end_server ]
+step_list = [ start_server , start_client ]#, end_server ]

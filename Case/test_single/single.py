@@ -20,12 +20,12 @@ query_dict = {
 }
 
 deploy_dict = {
-    'server': 'dev1.tar.gz'
+    'server': 'server.tar.gz'
 }
 
 def start_server(i):
     i.log('start_server')
-    i.run_sync('server', 'start.sh')
+    i.run_sync('server', 'single/server/start.sh')
 
 #def start_client(i):
 #    i.log('start_client')
@@ -38,4 +38,4 @@ def start_server(i):
 #    i.log('end_server')
 #    i.run_sync('server', 'end')
 
-step_list = [ start_server, start_client, end_server ]
+step_list = [ start_server ] #, start_client, end_server ]

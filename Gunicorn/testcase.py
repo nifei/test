@@ -9,13 +9,16 @@ import functions.Allocation, functions.Actions
 import functions.DeviceDB
 import urlparse
 import subprocess
+import config
 
 actions = functions.Actions
 allocation = functions.Allocation
+UploadPath = config.UploadPath
+TestCaseFilesPath = config.TestCaseFilesPath
+TemplatePath = config.TemplatePath
+ScriptPath = config.ScriptPath
 
 # ../bin/gunicorn -w 4 --env HTTP_ACCEPT_LANGUAGE='zh-CN' testcase:app
-
-UploadPath = '/home/test/TestCaseFiles/'
 
 def resolve_query_dict(test_case_name):
     script_module = importlib.import_module('scripts.' + test_case_name)
@@ -88,24 +91,54 @@ def execute_query(environ):
     data = json.dumps(context)
     return data
 
+def specialize(occupied_devices, test_case_folder):
+    shellTemplateLoader = jinja2.FileSystemLoader(searchpath='/')
+    shellTemplateEnv = jinja2.Environment(loader = shellTemplateLoader, trim_blocks=True, keep_trailing_newline=True)
+    vars = {}
+    for (device_name, device_id) in occupied_devices.items():
+        device = functions.DeviceDB.query_device(device_id)
+        for (key,val) in device.items():
+            vars[device_name+'_'+key] = val
+    print vars
+    for root, folder, subs in os.walk(test_case_folder):
+        for file in subs:
+            if file.endswith('.sh') and root != test_case_folder:
+                script_template = shellTemplateEnv.get_template(os.path.join(root, file))
+                print script_template.render(vars)
+                with open(os.path.join(root, file), 'w+') as f:
+                    f.write(script_template.render(vars))
+                    f.close()
+
 def execute_deploy(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
     test_case_name = form['test_case_name'].value
     task_id = int(form['task_id'].value)
+    return execute_deploy_impl(task_id, test_case_name)
 
+def execute_deploy_impl(task_id, test_case_name):
     occupied_devices = functions.DeviceDB.query_device_task_relation(task_id)
     script_module = importlib.import_module('scripts.' + test_case_name)
     deploy_dict = getattr(script_module, 'deploy_dict')
-    data = {}
+    test_case_path = UploadPath + test_case_name
+    specialize(occupied_devices, test_case_path)
     for (device_name, device_id) in occupied_devices.items():
+        folder_to_deploy = deploy_dict[device_name]
+        subprocess.call("cd %s;tar -cvzf %s.tar.gz %s"%(test_case_path, folder_to_deploy, folder_to_deploy), shell=True)
         tar = deploy_dict[device_name]
-        xtar_sh = UploadPath + test_case_name + '/' + 'xtar' + '_' + tar + '.sh'
-        with open(xtar_sh, 'w+') as xtar_sh_file:
-            xtar_sh_file.write('tar -xvzf %s ./%s' % (tar, test_case_name))
-        actions.deploy_async(device_id, test_case_name + '/' + tar, task_id)
+        xtar_sh = test_case_name + '/' + 'xtar' + '_' + tar + '.sh'
+        with open(UploadPath + '/' + xtar_sh, 'w+') as xtar_sh_file:
+            xtar_content = 'mkdir -p %s; tar -xvzf %s -C./%s' % (test_case_name, tar+'.tar.gz', test_case_name)
+            xtar_sh_file.write(xtar_content)
+        actions.deploy_async(device_id, TestCaseFilesPath + test_case_name + '/' + tar + '.tar.gz', task_id)
+        actions.deploy_async(device_id, TestCaseFilesPath +  xtar_sh, task_id)
+        actions.run_async(device_id, xtar_sh, task_id)
+    data = {}
     data['content'] = json.dumps(occupied_devices, indent=4, separators=(',', ':'))
     data['stop'] = 'false' if len(occupied_devices) > 0 else 'true'
-    return json.dumps(data, indent=4, separators=(',', ':'))
+    str = json.dumps(data, indent=4, separators=(',', ':'))
+    return str
+
+#execute_deploy_impl(1, 'pair')
 
 def execute_start(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
@@ -167,7 +200,8 @@ def check_deploy(environ):
         formated_string += '%d\t%s\t%s\t%s\t%s\n'%(action_status['Device Id'], action_status['Role'], action_status['File'], action_status['IP'], action_status['Status'])
         if action_status['Status'] in ('PENDING','RUNNING'):
             stop = 'false'
-    return json.dumps({'stop':stop, 'content':formated_string}, indent=4, separators=(',', ':'))
+    data = {'stop':stop, 'content':formated_string}
+    return json.dumps(data, indent=4, separators=(',', ':'))
 
 def check_status(environ):
     query_dict = urlparse.parse_qs(environ['QUERY_STRING'])
@@ -290,8 +324,9 @@ def upload_extract(environ):
             return run
 
         pys = filter(end_filter('.py'), os.listdir(local_folder))
-        tars = filter(end_filter('.tar.gz', '.tar', '.zip'), os.listdir(local_folder))
-        if pys[0]:
+        folders = [ d for d in os.listdir(local_folder) 
+		if os.path.isdir(local_folder+'/'+d)] 
+        if len(pys) > 0 and pys[0] == test_case_name+'.py':
             script_file = pys[0]
             shutil.copyfile(local_folder + script_file, './scripts/' + script_file)
         else:
@@ -299,7 +334,7 @@ def upload_extract(environ):
         return {
             'test_case_name': test_case_name,
             'script_file': script_file,
-            'tars': tars
+            'tars': folders
             }
     else:
         return {'test_case_name': 'Invalid File' }
@@ -323,7 +358,7 @@ def case_detail_content(vars):
     return render_template(template, vars)
 
 def get_template(file):
-    templateLoader = jinja2.FileSystemLoader( searchpath= "/home/test/test/Gunicorn/template/")
+    templateLoader = jinja2.FileSystemLoader( searchpath= TemplatePath)
     templateEnv = jinja2.Environment(loader = templateLoader, trim_blocks=True, keep_trailing_newline=True)
     template = templateEnv.get_template(file)
     return template
@@ -332,6 +367,3 @@ def render_template(template, vars):
     output = template.render(vars)
     return unicodedata.normalize("NFKD", output).encode("utf-8", "ignore")
 
-#data, devices = execute_query('test')
-#print data
-#allocation.release_devices(devices.values())

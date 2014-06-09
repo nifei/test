@@ -86,7 +86,12 @@ do
             localFileName="${fileName##*/}"
             cd ${Download}   
             if [[ ! -x "${localFileName}" ]]; then
-                STATUS="Execution_Err"
+		if [[ ! -x "${fileName}" ]]; then
+		    STATUS="Execution_Err"
+		else
+		    ./${fileName}
+		    STATUS="OK"
+		fi
             else
                 ./${localFileName}
                 STATUS="Execution_OK"

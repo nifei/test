@@ -64,5 +64,3 @@ def release_task_devices(task_id):
     occupied_devices = db.query_device_task_relation(task_id)
     release_devices(occupied_devices.values())
     db.clear_device_task_relation(task_id)
-
-release_task_devices(33)

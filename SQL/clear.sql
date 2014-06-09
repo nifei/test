@@ -1,0 +1,42 @@
+CREATE TABLE IF NOT EXISTS DeviceInfo(
+        ID int(10) unsigned NOT NULL AUTO_INCREMENT, 
+	STATUS char(30) NOT NULL, 
+	IP char(30) NOT NULL, 
+	MAC char(30) NOT NULL, 
+	NATTYPE char(30) NOT NULL, 
+	NAT char(30) NOT NULL, 
+	TUNNEL int(10), 
+	PEERID char(30),
+	SHARED_COUNT int(10),
+	PRIMARY KEY(ID));
+
+CREATE TABLE IF NOT EXISTS DeviceAction(
+        ID int(10) unsigned NOT NULL AUTO_INCREMENT, 
+	MAC char(30) NOT NULL, 
+	ACTION char(30) NOT NULL DEFAULT 'WAIT', 
+	FILE char(100) NOT NULL DEFAULT '', 
+	STATUS char(30) NOT NULL, 
+	TASK_ID int(10) unsigned DEFAULT 0, 
+	PRIMARY KEY(ID));
+
+CREATE TABLE IF NOT EXISTS Tasks (
+        ID int(10) unsigned NOT NULL AUTO_INCREMENT, 
+	TEST_CASE char(30) NOT NULL, 
+	TASK_NAME char(30) NOT NULL, 
+	STATUS char(30) NOT NULL, 
+	CURRENT_STEP int(10) NOT NULL DEFAULT -1, 
+	STOP_FLAG BOOL DEFAULT FALSE,
+	PAUSE_FLAG BOOL DEFAULT FALSE,
+	PRIMARY KEY(ID));
+
+CREATE TABLE IF NOT EXISTS TaskDeviceRelation (
+        ID int(10) unsigned NOT NULL AUTO_INCREMENT, 
+	TASK_ID int(10) NOT NULL, 
+	DEVICE_ID int(10) NOT NULL, 
+	ROLE char(30) NOT NULL, 
+	PRIMARY KEY(ID));
+delete from DeviceAction; 
+delete from TaskDeviceRelation;
+delete from Tasks;
+delete from DeviceInfo;
+

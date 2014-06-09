@@ -52,7 +52,7 @@ def insert_task(test_case, task_name):
     if len(rows) > 0:
         row_id = int(rows[0][0])
     else:
-        cursor.execute("insert into Tasks (TASK_NAME, TEST_CASE, CURRENT_STEP) values ('%s', '%s', %d)"%(task_name, test_case, -1))
+        cursor.execute("insert into Tasks (TASK_NAME, TEST_CASE, CURRENT_STEP, STATUS) values ('%s', '%s', %d, 'NOT RUNNING')"%(task_name, test_case, -1))
         row_id = int(cursor.lastrowid)
         db.commit()
     db.close()
@@ -81,8 +81,6 @@ def update_task_status(task_id, status):
     db.commit()
     db.close()
     return True
-
-update_task_status(1, 'RUNNING')
 
 # @in: task_id
 # @out: dict
@@ -161,10 +159,30 @@ def query_device_mac(device_id):
 def query_device(device_id):
     db = MySQLdb.connect(host, user, password, dbname)
     cursor = db.cursor()
-    cursor.execute("Select * from DeviceInfo where ID= %s " % (device_id))
+    cursor.execute("Select ID, "
+                   "STATUS, "
+                   "IP, "
+                   "MAC, "
+                   "NAT,"
+                   "PEERID,"
+                   "SHARED_COUNT "
+                   "from DeviceInfo where ID= %s " % (device_id))
     row = cursor.fetchone()
     db.close()
-    return row
+    if len(row) > 0:
+        device = {
+            'ID':int(row[0]),
+            'STATUS':row[1],
+            'IP':row[2],
+            'MAC':row[3],
+            'NAT':row[4],
+            'PEERID':row[5],
+            'SHARED_COUNT':row[6]
+        }
+    else:
+        device = None
+    return device
+#ID	STATUS	IP	MAC	NATTYPE	NAT	TUNNEL	PEERID	SHARED_COUNT
 
 # @in: device_ids = [1,2,3...]
 def query_device_macs(device_ids):

@@ -32,7 +32,7 @@ $createTableSql="CREATE TABLE IF NOT EXISTS Tasks (
 	TEST_CASE char(30) NOT NULL, 
 	TASK_NAME char(30) NOT NULL, 
 	STATUS char(30) NOT NULL, 
-	CURRENT_STEP int(10) unsigned, 
+	CURRENT_STEP int(10), 
 	PRIMARY KEY(ID))";
 $db->Query($createTableSql);
 
