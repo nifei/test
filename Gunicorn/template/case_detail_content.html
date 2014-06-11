@@ -31,6 +31,9 @@
         <button onclick="resolve_script('resolve','steps');">解析执行步骤 （⊙-⊙）</button>
     </div>
     <div>
+        <button onclick="alert('这个button是为了对齐的\n少年你很有好奇心嘛');">（⊙-⊙）</button>
+    </div>
+    <div>
         <textarea id="test_case_resolve" style="position: relative; height:60vh; width: 100%;" readonly="readonly"></textarea>
     </div>
     <div>
@@ -66,6 +69,9 @@
     <div>
         <button onclick="start();" id='btn_start_pause'>开始</button>
         <button onclick="stop();" id='btn_stop' disabled="true">停止</button>
+    </div>
+    <div>
+        <button onclick="log();" id='btn_upload_log'>上传日志</button>
     </div>
     <div>
         <textarea id="test_task_status" style="position: relative; height:60vh; width: 100%;" readonly="readonly"></textarea>
@@ -174,6 +180,9 @@
             operate_script_async('execute','resume','FINISHED', start_callback);
             document.getElementById('btn_start_pause').innerHTML = '暂停'
         }
+    }
+    function log(){
+        operate_script_async('execute','log');
     }
     function operate_script_async(operation, content_name, expected_result, callback){
         if (check_operation_fields()){

@@ -93,6 +93,40 @@ def query_task(task_id):
     db.close()
     return {'task name':row[0], 'test case':row[1], 'current step':int(row[2]), 'stop flag':bool(row[3]), 'pause flag':bool(row[4]), 'status':row[5]} if row and len(row)>0 else None
 
+def query_task_id(test_case_name, task_name):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    sql = "select ID from Tasks where TEST_CASE='%s' and TASK_NAME='%s'"%(test_case_name, task_name)
+    cursor.execute(sql)
+    row = cursor.fetchone()
+    db.close()
+    return row[0] if row and len(row)>0 else None
+
+def delete_task(task_id):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    sql = "delete from Tasks where ID=%d"%task_id
+    cursor.execute(sql)
+    db.commit()
+    db.close()
+    return True
+
+def delete_task_if_exists(test_case_name, task_name):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    sql = "delete from Tasks where TEST_CASE='%s' and TASK_NAME='%s'"%(test_case_name, task_name)
+    cursor.execute(sql)
+    affect_rows = db.affected_rows()
+    db.commit()
+    db.close()
+    return True if affect_rows> 0 else False
+
+def delete_task_actions(task_id):
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cursor.execute("delete from DeviceAction where TASK_ID='%s'"%(task_id))
+    db.close()
+
 # @in: task_id, action_type
 def query_task_actions(task_id, action_type):
     db = MySQLdb.connect(host, user, password, dbname)

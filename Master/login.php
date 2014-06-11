@@ -8,21 +8,21 @@ $createTableSql="CREATE TABLE IF NOT EXISTS DeviceInfo(
         ID int(10) unsigned NOT NULL AUTO_INCREMENT, 
 	STATUS char(30) NOT NULL, 
 	IP char(30) NOT NULL, 
-	MAC char(30) NOT NULL, 
+	MAC char(100) NOT NULL, 
 	NATTYPE char(30) NOT NULL, 
 	NAT char(30) NOT NULL, 
-	TUNNEL int(10), 
-	PEERID char(30),
-	SHARED_COUNT int(10),
+	TUNNEL int(10) DEFAULT 0, 
+	PEERID char(30) DEFAULT '',
+	SHARED_COUNT int(10) DEFAULT 0,
 	PRIMARY KEY(ID))";
 $db->Query($createTableSql);
 
 $createTableSql="CREATE TABLE IF NOT EXISTS DeviceAction(
         ID int(10) unsigned NOT NULL AUTO_INCREMENT, 
-	MAC char(30) NOT NULL, 
+	MAC char(100) NOT NULL, 
 	ACTION char(30) NOT NULL DEFAULT 'WAIT', 
-	FILE char(30) NOT NULL DEFAULT '', 
-	STATUS char(30) NOT NULL, 
+	FILE char(100) NOT NULL DEFAULT '', 
+	STATUS char(30) NOT NULL DEFAULT 'PENDING', 
 	TASK_ID int(10) unsigned DEFAULT 0, 
 	PRIMARY KEY(ID))";
 $db->Query($createTableSql);
@@ -33,6 +33,8 @@ $createTableSql="CREATE TABLE IF NOT EXISTS Tasks (
 	TASK_NAME char(30) NOT NULL, 
 	STATUS char(30) NOT NULL, 
 	CURRENT_STEP int(10), 
+	STOP_FLAG BOOL,
+	PAUSE_FLAG BOOL,
 	PRIMARY KEY(ID))";
 $db->Query($createTableSql);
 

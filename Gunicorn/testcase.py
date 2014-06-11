@@ -1,4 +1,4 @@
-import jinja2,cgi,os
+import jinja2,cgi,os,stat,string
 import zipfile,tarfile
 import unicodedata
 import shutil
@@ -17,7 +17,9 @@ UploadPath = config.UploadPath
 TestCaseFilesPath = config.TestCaseFilesPath
 TemplatePath = config.TemplatePath
 ScriptPath = config.ScriptPath
-
+LogPath = '/home/test/Agent/Log/'
+LogTargetPath = 'Log/'
+HostString = 'test@192.168.91.123'
 # ../bin/gunicorn -w 4 --env HTTP_ACCEPT_LANGUAGE='zh-CN' testcase:app
 
 def resolve_query_dict(test_case_name):
@@ -69,9 +71,8 @@ def execute_query(environ):
     occupied_devices = {}
     for (device_name, dict) in query_dict.items():
         if all_found == False:
-            allocation.release_devices(occupied_devices)
-            occupied_devices.clear()
             break
+
         device_list = allocation.find_device(dict, 1)
         if len(device_list) < 1:
             all_found = False
@@ -81,32 +82,33 @@ def execute_query(environ):
             if all_found:
                 occupied_devices[device_name] = device_list[0]
 
-    for (device_name, device_id) in occupied_devices.items():
-        functions.DeviceDB.insert_device_task_relation(task_id, device_id, device_name)
-    context={}
-    context['occupied_devices'] = occupied_devices
-    context['task_id'] = task_id
-    context['test_case_name'] = test_case_name
-    context['devices_assigned'] = all_found
-    data = json.dumps(context)
+    if not all_found:
+        allocation.release_devices(occupied_devices)
+        occupied_devices.clear()
+    else:
+        for (device_name, device_id) in occupied_devices.items():
+            functions.DeviceDB.insert_device_task_relation(task_id, device_id, device_name)
+    data = 'devices found:' + str(all_found) + '\n'
+    data += 'devices name-id:\n'
+    data += json.dumps(occupied_devices, indent=4, separators=(',', ':'))
     return data
 
-def specialize(occupied_devices, test_case_folder):
+def specialize(occupied_devices, test_case_folder, task_id):
     shellTemplateLoader = jinja2.FileSystemLoader(searchpath='/')
     shellTemplateEnv = jinja2.Environment(loader = shellTemplateLoader, trim_blocks=True, keep_trailing_newline=True)
     vars = {}
+    vars['log_dir'] = '%s%d/'%(LogPath,task_id)
     for (device_name, device_id) in occupied_devices.items():
         device = functions.DeviceDB.query_device(device_id)
         for (key,val) in device.items():
             vars[device_name+'_'+key] = val
-    print vars
     for root, folder, subs in os.walk(test_case_folder):
         for file in subs:
             if file.endswith('.sh') and root != test_case_folder:
                 script_template = shellTemplateEnv.get_template(os.path.join(root, file))
-                print script_template.render(vars)
                 with open(os.path.join(root, file), 'w+') as f:
-                    f.write(script_template.render(vars))
+                    c = script_template.render(vars)
+                    f.write(c)
                     f.close()
 
 def execute_deploy(environ):
@@ -115,22 +117,44 @@ def execute_deploy(environ):
     task_id = int(form['task_id'].value)
     return execute_deploy_impl(task_id, test_case_name)
 
+def write_upload_log_bash(bash_file, log_path, host_string, target_path):
+    with open(bash_file, 'w+') as f:
+        content = "pscp -r -pw '123456' -P 8022 %s* %s:%s"%(log_path, host_string, target_path)
+        f.write(content)
+        f.close()
+        os.chmod(bash_file, os.stat(bash_file).st_mode | stat.S_IEXEC)
+
 def execute_deploy_impl(task_id, test_case_name):
     occupied_devices = functions.DeviceDB.query_device_task_relation(task_id)
     script_module = importlib.import_module('scripts.' + test_case_name)
     deploy_dict = getattr(script_module, 'deploy_dict')
-    test_case_path = UploadPath + test_case_name
-    specialize(occupied_devices, test_case_path)
+    str_task_id = '%d'%task_id
+    task_path = UploadPath + str_task_id
+    subprocess.call('mkdir -p %s'%(task_path), shell=True)
+    copycmd = 'cp %s %s -r;'%(UploadPath + test_case_name + '/*', task_path + '/')
+    subprocess.call(copycmd, shell=True)
+    specialize(occupied_devices, task_path, task_id)
     for (device_name, device_id) in occupied_devices.items():
         folder_to_deploy = deploy_dict[device_name]
-        subprocess.call("cd %s;tar -cvzf %s.tar.gz %s"%(test_case_path, folder_to_deploy, folder_to_deploy), shell=True)
+        log_upload_sh = task_path + '/' + folder_to_deploy + '/' + 'upload_log.sh'
+        log_path_agent = LogPath + str_task_id + '/'
+        log_upload_target = LogTargetPath + str_task_id + '/' + device_name
+        make_log_folder = 'mkdir -p %s'%log_upload_target
+        subprocess.call(make_log_folder, shell = True)
+        write_upload_log_bash(log_upload_sh, log_path_agent, HostString, log_upload_target)
+
+        tarcmd ='cd %s; tar -czf %s.tar.gz %s'%(task_path, folder_to_deploy, folder_to_deploy)
+        subprocess.call(tarcmd, shell=True)
         tar = deploy_dict[device_name]
-        xtar_sh = test_case_name + '/' + 'xtar' + '_' + tar + '.sh'
-        with open(UploadPath + '/' + xtar_sh, 'w+') as xtar_sh_file:
-            xtar_content = 'mkdir -p %s; tar -xvzf %s -C./%s' % (test_case_name, tar+'.tar.gz', test_case_name)
+        xtar_sh = 'xtar' + '_' + tar + '.sh'
+        xtar_sh_path = task_path + '/' + xtar_sh
+        with open(xtar_sh_path, 'w+') as xtar_sh_file:
+            xtar_content = 'mkdir -p %s; tar -xvzf %s -C ./%s;mkdir -p %s' % (test_case_name, tar+'.tar.gz', test_case_name, log_path_agent)
             xtar_sh_file.write(xtar_content)
-        actions.deploy_async(device_id, TestCaseFilesPath + test_case_name + '/' + tar + '.tar.gz', task_id)
-        actions.deploy_async(device_id, TestCaseFilesPath +  xtar_sh, task_id)
+            xtar_sh_file.close()
+            os.chmod(xtar_sh_path, os.stat(xtar_sh_path).st_mode | stat.S_IEXEC)
+        actions.deploy_async(device_id, TestCaseFilesPath + str_task_id + '/' + tar + '.tar.gz', task_id)
+        actions.deploy_async(device_id, TestCaseFilesPath + str_task_id + '/' + xtar_sh, task_id)
         actions.run_async(device_id, xtar_sh, task_id)
     data = {}
     data['content'] = json.dumps(occupied_devices, indent=4, separators=(',', ':'))
@@ -138,7 +162,7 @@ def execute_deploy_impl(task_id, test_case_name):
     str = json.dumps(data, indent=4, separators=(',', ':'))
     return str
 
-#execute_deploy_impl(1, 'pair')
+#execute_deploy_impl(88, 'pair')
 
 def execute_start(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
@@ -172,6 +196,11 @@ def execute_resume(environ):
     subprocess.call("python ./Tasks.py resume %s &"%task_id, shell=True)
     return json.dumps({"stop":"false", "content":"Test task continued. "})
 
+def execute_log(environ):
+    form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
+    task_id = int(form['task_id'].value)
+    return json.dumps({"stop":"false", "content":"HIAHIAHIA"})
+
 def execute_release(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
     task_id = int(form['task_id'].value)
@@ -187,7 +216,8 @@ execute_script_methods = {
     'start': execute_start,
     'stop': execute_stop,
     'pause': execute_pause,
-    'resume': execute_resume
+    'resume': execute_resume,
+    'log': execute_log
 }
 
 def check_deploy(environ):
@@ -202,6 +232,12 @@ def check_deploy(environ):
             stop = 'false'
     data = {'stop':stop, 'content':formated_string}
     return json.dumps(data, indent=4, separators=(',', ':'))
+
+def check_log(environ):
+    query_dict = urlparse.parse_qs(environ['QUERY_STRING'])
+    task_id = int(query_dict['task_id'][0])
+    formatted_string = '(*_*)~'
+    return json.dumps({'stop':'true', 'content':formatted_string})
 
 def check_status(environ):
     query_dict = urlparse.parse_qs(environ['QUERY_STRING'])
@@ -248,7 +284,8 @@ check_script_methods = {
     'start': check_steps,
     'pause': check_status,
     'stop': check_status,
-    'resume': check_steps
+    'resume': check_steps,
+    'log':check_log
 }
 
 def app(environ, start_response):
@@ -296,6 +333,14 @@ def new_task(environ):
     form = cgi.FieldStorage(fp=environ['wsgi.input'], environ=environ, keep_blank_values=True)
     test_case_name = form['test_case_name'].value
     task_name = form['task_name'].value
+    return new_task_impl(test_case_name, task_name)
+
+def new_task_impl(test_case_name, task_name):
+    prev_task_id = functions.DeviceDB.query_task_id(test_case_name, task_name)
+    if prev_task_id and prev_task_id > 0:
+        allocation.release_task_devices(prev_task_id)
+        functions.DeviceDB.delete_task_actions(prev_task_id)
+        functions.DeviceDB.delete_task(prev_task_id)
     task_id = functions.DeviceDB.insert_task(test_case_name, task_name)
     return str(task_id)
 
