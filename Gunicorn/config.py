@@ -1,5 +1,19 @@
+#UploadPath = '/home/master/TestCaseFiles/'
+#TestCaseFilesPath = 'TestCaseFiles/'
+#TemplatePath = "/home/master/Gunicorn/template/"
+#ScriptPath = "/home/master/Gunicorn/scripts/"
+#LogTargetPath = 'Log/'
+#LogPath = '/home/test/Agent/Log/'
+#HostString = 'master@192.168.91.144'
+#LogMasterPath = '/home/master/Log/'
+#SCPLogin = "pscp -r -pw '666666' -P 8022 %s* %s:%s"
+
 UploadPath = '/home/test/TestCaseFiles/'
 TestCaseFilesPath = 'TestCaseFiles/'
 TemplatePath = "/home/test/test/Gunicorn/template/"
 ScriptPath = "/home/test/test/Gunicorn/scripts/"
-
+LogTargetPath = 'Log/'
+LogPath = '/home/test/Agent/Log/'
+HostString = 'test@192.168.91.123'
+LogMasterPath = '/home/test/Log/'
+SCPLogin = "pscp -r -pw '123456' -P 8022 %s* %s:%s"

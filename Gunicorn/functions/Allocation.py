@@ -5,7 +5,7 @@ db = functions.DeviceDB
 
 # @in : @limitations: [{},{},{}...], @count=1
 # @out: IDs in DeviceInfo
-device_attrbs = ["ID", "STATUS", "IP", "MAC", "NATTYPE", "NAT", "TUNNEL", "PEERID", "SHARED_COUNT"]
+device_attrbs = ["ID", "STATUS", "IP", "MAC", "NETTYPE", "NAT", "TUNNEL", "PEERID", "SHARED_COUNT"]
 def find_device(limitation, count=None):
     filters=[]
     for (key, value) in limitation.items():

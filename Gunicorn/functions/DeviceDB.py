@@ -124,7 +124,8 @@ def delete_task_if_exists(test_case_name, task_name):
 def delete_task_actions(task_id):
     db = MySQLdb.connect(host, user, password, dbname)
     cursor = db.cursor()
-    cursor.execute("delete from DeviceAction where TASK_ID='%s'"%(task_id))
+    cursor.execute("delete from DeviceAction where TASK_ID=%d"%(task_id))
+    db.commit()
     db.close()
 
 # @in: task_id, action_type
@@ -145,7 +146,69 @@ def query_task_actions(task_id, action_type):
 # @out: status
 def query_action_status(action_id):
     row = query_action(action_id)
-    return row[4] if row else None
+    return row['STATUS'] if row else None
+
+#    if len(device_ids) > 0:
+#        id_set = "(%s)" % (",".join("%s" % device_id for device_id in device_ids))
+#        db = MySQLdb.connect(host, user, password, dbname)
+#        cursor = db.cursor()
+#        cursor.execute("Select MAC from DeviceInfo where ID in %s " % (id_set))
+#        macs = [item[0] for item in cursor.fetchall()]
+#        db.close()
+#    else:
+#        macs = []
+#    return macs
+def query_actions(action_ids):
+    if len(action_ids) > 0:
+        id_set = "(%s)" % (','.join('%s'% action_id for action_id in action_ids))
+        db = MySQLdb.connect(host, user, password, dbname)
+        cursor = db.cursor()
+       #ID	MAC	ACTION	FILE	STATUS	TASK_ID
+        cursor.execute("select MAC, ACTION, FILE, STATUS, TASK_ID from DeviceAction where ID in %s" % (id_set))
+        actions = [{'MAC':ret[0],
+                'ACTION':ret[1],
+                'FILE':ret[2],
+                'STATUS':ret[3],
+                'TASK_ID':ret[4]} for ret in cursor.fetchall()]
+        db.close()
+        return actions
+    else:
+        return []
+
+def query_actions_info(action_ids):
+    if len(action_ids) > 0:
+        id_set = "(%s)" % (','.join('%s'% action_id for action_id in action_ids))
+        db = MySQLdb.connect(host, user, password, dbname)
+        cursor = db.cursor()
+        #ID	MAC	ACTION	FILE	STATUS	TASK_ID
+        sql = "select DeviceAction.MAC, " \
+              "ACTION, " \
+              "FILE, " \
+              "DeviceAction.STATUS, " \
+              "DeviceAction.TASK_ID, " \
+              "DeviceInfo.ID as DeviceID, " \
+              "DeviceAction.ID as ActionID," \
+              "DeviceInfo.PEERID as PeerID," \
+              "DeviceInfo.IP as IP," \
+              "TaskDeviceRelation.ROLE as ROLE " \
+              "from DeviceAction , DeviceInfo, TaskDeviceRelation where DeviceAction.ID in %s and DeviceAction.MAC=DeviceInfo.MAC and DeviceInfo.ID=TaskDeviceRelation.DEVICE_ID and DeviceAction.TASK_ID=TaskDeviceRelation.TASK_ID" % (id_set)
+        cursor.execute(sql)
+        actions = [{
+                    'MAC':ret[0],
+                    'ACTION':ret[1],
+                    'FILE':ret[2],
+                    'STATUS':ret[3],
+                    'TASK_ID':int(ret[4]),
+                    'DEVICE_ID':int(ret[5]),
+                    'ACTION_ID':int(ret[6]),
+                    'PEERID':ret[7],
+                    'IP':ret[8],
+                    'ROLE':ret[9]
+                   } for ret in cursor.fetchall()]
+        db.close()
+        return actions
+    else:
+        return []
 
 # @in:  action_id
 # @out: row
@@ -153,10 +216,15 @@ def query_action(action_id):
    # return status in ('Pending', 'Running')
     db = MySQLdb.connect(host, user, password, dbname)
     cursor = db.cursor()
-    cursor.execute("select * from DeviceAction where ID='%d'" % action_id)
+   #ID	MAC	ACTION	FILE	STATUS	TASK_ID
+    cursor.execute("select MAC, ACTION, FILE, STATUS, TASK_ID from DeviceAction where ID='%d'" % action_id)
     ret = cursor.fetchone()
     db.close()
-    return ret
+    return {'MAC':ret[0],
+            'ACTION':ret[1],
+            'FILE':ret[2],
+            'STATUS':ret[3],
+            'TASK_ID':ret[4]}
 
 # @in:  device_id, action, script_name
 # @out: action_id
@@ -216,7 +284,7 @@ def query_device(device_id):
     else:
         device = None
     return device
-#ID	STATUS	IP	MAC	NATTYPE	NAT	TUNNEL	PEERID	SHARED_COUNT
+#ID	STATUS	IP	MAC	NETTYPE	NAT	TUNNEL	PEERID	SHARED_COUNT
 
 # @in: device_ids = [1,2,3...]
 def query_device_macs(device_ids):

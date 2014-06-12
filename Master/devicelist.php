@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body
+{
+background:#d0e4fe url('img/devicelist.jpg') top;
+margin-right:200px;
+}
+#devicelist
+{
+position:absolute;
+left:500px;
+top:50px;
+}
+</style>
+</head>
+
+<body>
+<h1 align="center"> Device List </h1>
+<div id="devicelist">
 <?php
 require_once('mysqlconf.php');
 require_once('devicesql.php');
@@ -7,64 +28,52 @@ $db=new Device($db_host, $db_user, $db_pwd, $db_name, $db_charSet, $db_conn);
 $res=$db->Query($querySql);
 $resNum=$db->GetRowsNum($res);
 
-echo "Total Devices: " . $resNum . "<br/>";
-echo "<table width='400' border='6'>
-<caption>All Device Net Information</caption>
+echo "The Number of Devices: " . $resNum . "<br/>";
+echo "<table width='400' border='1'>
+<caption> Devices Net Information as follows: </caption>
 <tr>
-	<td align='center'>ID</td>
-	<td align='center'>Status</td>
-	<td align='center'>IP</td>
-	<td align='center'>MAC</td>
-	<td align='center'>NatType</td>
+	<th>ID</th>
+	<th>Status</th>
+	<th>NetType</th>
+	<th>IP</th>
+	<th>MAC</th>
+	<th>PeerID</th>
+	<th>FreeMem</th>
+	<th>FreeDisk</th>
+	<th>OSType</th>
 </tr>";
 
 while($row=mysql_fetch_array($res))
 {
 	echo "<tr>";
 	echo "<td align='center'>" . $row[ID] . "</td>";
-	echo "<td bgcolor='red' align='center'>" . $row[STATUS] . "</td>";
+	
+	switch($row[STATUS])
+	{
+	case "Idle":
+		echo "<td bgcolor=#FF9933 align='center'>" . $row[STATUS] . "</td>";
+	break;
+	case "Disposition_OK":
+	case "Execution_OK":
+		echo "<td bgcolor=#00FF00 align='center'>" . $row[STATUS] . "</td>";
+	break;
+	case "Disposition_Err":
+	case "Execution_Err":
+		echo "<td bgcolor=#FF0000 align='center'>" . $row[STATUS] . "</td>";
+	break;
+	default:
+		echo "<td bgcolor=#C0C0C0 align='center'>" . $row[STATUS] . "</td>";
+	break;
+	}
+
+	echo "<td align='center'>" . $row[NETTYPE] . "</td>";
 	echo "<td align='center'>" . $row[IP] . "</td>";
 	echo "<td align='center'>" . $row[MAC] . "</td>";
-	echo "<td align='center'>" . $row[NATTYPE] . "</td>";
+	echo "<td align='center'>" . $row[PEERID] . "</td>";
+	echo "<td align='center'>" . $row[FREEMEM] . "</td>";
+	echo "<td align='center'>" . $row[FREEDISK] . "</td>";
+	echo "<td align='center'>" . $row[OSTYPE] . "</td>";
 	echo "</tr>";
 }
 
 echo "</table>";
-?>
-
-<HTML>
-<HEAD>
-<TITLE>Device Net Information</TITLE>
-</HEAD>
-<BODY>
-<div>
-<form name="frmImage" enctype="multipart/form-data" action="http://127.0.0.1/dispose.php" method="post" class="frmImageUpload">
-
-<label>Peers: </label>
-<input type="text" name="peers" value=""/>
-<br />
-
-<label>DianXin peers:	</label>
-<input type="text" name="dianxin" value=""/>
-<br />
-
-<label>LianTong peers:	</label>
-<input type="text" name="liantong" value=""/>
-<br />
-
-<label>YiDong peers:	</label>
-<input type="text" name="yidong" value=""/>
-<br />
-
-<label>Upload File:	</label>
-<input name="file" type="file" id="file" />
-<br />
-<br />
-<input type="submit" value="Submit" />
-<input type="reset" value="Reset" />
-<br/>
-
-</form>
-</div>
-</BODY>
-</HTML>

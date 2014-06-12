@@ -48,7 +48,7 @@ def start(task_id):
     functions.DeviceDB.update_task_flag(task_id, 'STOP_FLAG', False)
     functions.DeviceDB.update_task_flag(task_id, 'PAUSE_FLAG', False)
     occupied_devices = functions.DeviceDB.query_device_task_relation(task_id)
-    task_action_executor = TaskActionExecutor(task_id, occupied_devices)
+    task_action_executor = TaskActionExecutor(test_case_name, task_id, occupied_devices)
     broken = False
     for i in range(len(steps)):
         task_info = functions.DeviceDB.query_task(task_id)
@@ -69,17 +69,21 @@ def start(task_id):
         functions.DeviceDB.update_task_status(task_id, 'FINISHED')
 
 class TaskActionExecutor(object):
-    def __init__(self, task_id, occupied_devices):
+    def __init__(self, test_case, task_id, occupied_devices):
         self.task_id = task_id
+        self.test_case = test_case
         self.occupied_devices = occupied_devices
+
+    def compose_script(self, role, script):
+        return self.test_case + '/' + role + '/' + script
 
     def run_sync(self, device_name, script):
         device_id = self.query_device_id(device_name)
-        return functions.Actions.run_sync(device_id, script, self.task_id)
+        return functions.Actions.run_sync(device_id, self.compose_script(device_name, script), self.task_id)
 
     def run_async(self, device_name, script):
         device_id = self.query_device_id(device_name)
-        return functions.Actions.run_async(device_id, script, self.task_id)
+        return functions.Actions.run_async(device_id, self.compose_script(device_name, script), self.task_id)
 
     def wait(self, *action_ids):
         for action_id in action_ids:
