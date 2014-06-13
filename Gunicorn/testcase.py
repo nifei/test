@@ -6,6 +6,7 @@ import functions.Allocation, functions.Actions
 import functions.DeviceDB
 import config
 import resolve,execute,check
+import Manual
 
 resolve_script_methods = resolve.resolve_script_methods
 execute_script_methods = execute.execute_script_methods
@@ -23,6 +24,12 @@ def app(environ, start_response):
     elif environ['PATH_INFO']=='/testcase/EditCase' and environ['REQUEST_METHOD'] == "POST":
         vars = upload_extract(environ)
         data = case_detail_content(vars)
+    elif environ['PATH_INFO'] == '/testcase/Unbearable' and environ['REQUEST_METHOD'] == 'GET':
+        data = Manual.GetManualTestPage(environ)
+    elif environ['PATH_INFO'] == '/testcase/Unbearable' and environ['REQUEST_METHOD'] == 'POST':
+        data = Manual.PostManualTestPage(environ)
+    elif environ['PATH_INFO'].startswith('/testcase/Unbearable'):
+        data = Manual.PostManualOperation(environ)
     elif environ['PATH_INFO']=='/testcase/scripts/newtask' and environ['REQUEST_METHOD'] == "POST":
         data = new_task(environ)
     elif environ['PATH_INFO'].startswith('/testcase/scripts/resolve/'):

@@ -311,6 +311,21 @@ def query_device_ids_by_filter(where_filter, count):
     db.close()
     return [int(item[0]) for item in rows]
 
+def query_all_devices():
+    db = MySQLdb.connect(host, user, password, dbname)
+    cursor = db.cursor()
+    cmd = 'select ID, MAC, IP, PEERID, NAT, NETTYPE from DeviceInfo;'
+    cursor.execute(cmd)
+    rows = cursor.fetchall()
+    db.close()
+    return [{'ID':int(item[0]),
+             'MAC': item[1],
+             'IP':item[2],
+             'PEERID':item[3],
+             'NAT':item[4],
+             'NETTYPE':item[5]
+             } for item in rows]
+
 def increase_shared_device(device_macs):
     db = MySQLdb.connect(host, user, password, dbname)
     cursor = db.cursor()

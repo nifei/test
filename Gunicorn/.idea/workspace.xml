@@ -12,11 +12,12 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Gunicorn$DeviceDB.coverage" NAME="DeviceDB Coverage Results" MODIFIED="1402466981584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/functions" />
     <SUITE FILE_PATH="coverage/Gunicorn$testcase.coverage" NAME="testcase Coverage Results" MODIFIED="1402553609283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Gunicorn$DeviceDB.coverage" NAME="DeviceDB Coverage Results" MODIFIED="1402639658387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/functions" />
     <SUITE FILE_PATH="coverage/Gunicorn$resolve.coverage" NAME="resolve Coverage Results" MODIFIED="1402556882843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gunicorn$Tasks.coverage" NAME="Tasks Coverage Results" MODIFIED="1402312406122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gunicorn$Allocation.coverage" NAME="Allocation Coverage Results" MODIFIED="1401959866789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/functions" />
+    <SUITE FILE_PATH="coverage/Gunicorn$Manual.coverage" NAME="Manual Coverage Results" MODIFIED="1402656651354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gunicorn$execute.coverage" NAME="execute Coverage Results" MODIFIED="1402563230520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -31,22 +32,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="execute.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/execute.py">
+      <file leaf-file-name="Manual.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manual.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="4" selection-start="7351" selection-end="7351" vertical-scroll-proportion="0.0" vertical-offset="6228" max-vertical-offset="9216">
+            <state line="73" column="34" selection-start="2820" selection-end="2820" vertical-scroll-proportion="0.0" vertical-offset="1549" max-vertical-offset="3240">
               <folding>
-                <element signature="e#20#36#0" expanded="true" />
+                <element signature="e#21#37#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Files.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/Files.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="8" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -54,36 +46,55 @@
       <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="31" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+            <state line="15" column="0" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resolve.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resolve.py">
+      <file leaf-file-name="testcase.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testcase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="9" selection-start="1882" selection-end="1882" vertical-scroll-proportion="0.0" vertical-offset="1669" max-vertical-offset="2340">
+            <state line="33" column="32" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="5832">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManualTestPage.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/template/ManualTestPage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="10" selection-start="1052" selection-end="1063" vertical-scroll-proportion="0.56568366" vertical-offset="658" max-vertical-offset="2988">
               <folding>
-                <element signature="e#20#36#0" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#2;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tasks.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tasks.py">
+      <file leaf-file-name="case_detail_content.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/case_detail_content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="0" selection-start="3354" selection-end="3354" vertical-scroll-proportion="0.4096081" vertical-offset="2628" max-vertical-offset="4176">
+            <state line="198" column="24" selection-start="7680" selection-end="8752" vertical-scroll-proportion="0.4556962" vertical-offset="7164" max-vertical-offset="8568">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pair.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/pair.py">
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="42" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0" vertical-offset="721" max-vertical-offset="1512">
+            <state line="11" column="9" selection-start="337" selection-end="337" vertical-scroll-proportion="-8.8" vertical-offset="0" max-vertical-offset="1116">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="execute.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/execute.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="24" selection-start="2415" selection-end="2630" vertical-scroll-proportion="-8.470589" vertical-offset="1980" max-vertical-offset="8784">
               <folding />
             </state>
           </provider>
@@ -110,17 +121,22 @@
         <option value="$PROJECT_DIR$/../TestCase/test/test.py" />
         <option value="$PROJECT_DIR$/functions/Actions.py" />
         <option value="$PROJECT_DIR$/functions/Allocation.py" />
-        <option value="$PROJECT_DIR$/functions/DeviceDB.py" />
         <option value="$PROJECT_DIR$/scripts/single.py" />
         <option value="$PROJECT_DIR$/operations/resolve.py" />
         <option value="$PROJECT_DIR$/check.py" />
-        <option value="$PROJECT_DIR$/testcase.py" />
-        <option value="$PROJECT_DIR$/template/case_detail_content.html" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/functions/Files.py" />
         <option value="$PROJECT_DIR$/execute.py" />
         <option value="$PROJECT_DIR$/resolve.py" />
         <option value="$PROJECT_DIR$/Tasks.py" />
+        <option value="$PROJECT_DIR$/templates.py" />
+        <option value="$PROJECT_DIR$/functions/Devices.py" />
+        <option value="$PROJECT_DIR$/functions/DeviceDB.py" />
+        <option value="$PROJECT_DIR$/template/case_detail_content.html" />
+        <option value="$PROJECT_DIR$/testcase.py" />
+        <option value="$PROJECT_DIR$/Manual.py" />
+        <option value="$PROJECT_DIR$/template/base.html" />
+        <option value="$PROJECT_DIR$/template/ManualTestPage.html" />
       </list>
     </option>
   </component>
@@ -156,6 +172,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -218,7 +235,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -231,6 +247,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TestCase/test/test.py" />
     <property name="FullScreen" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -243,7 +260,7 @@
       <recent name="$PROJECT_DIR$/scripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.execute">
+  <component name="RunManager" selected="Python.Manual">
     <configuration default="false" name="testcase" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -286,25 +303,6 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="Tasks" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Gunicorn" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tasks.py" />
-      <option name="PARAMETERS" value="resume 4" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
     <configuration default="false" name="resolve" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -344,6 +342,25 @@
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Manual" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Gunicorn" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Manual.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -500,17 +517,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.testcase" />
       <item index="1" class="java.lang.String" itemvalue="Python.DeviceDB" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Tasks" />
-      <item index="3" class="java.lang.String" itemvalue="Python.resolve" />
-      <item index="4" class="java.lang.String" itemvalue="Python.execute" />
+      <item index="2" class="java.lang.String" itemvalue="Python.resolve" />
+      <item index="3" class="java.lang.String" itemvalue="Python.execute" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Manual" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.execute" />
-        <item index="1" class="java.lang.String" itemvalue="Python.resolve" />
-        <item index="2" class="java.lang.String" itemvalue="Python.testcase" />
-        <item index="3" class="java.lang.String" itemvalue="Python.DeviceDB" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Tasks" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Manual" />
+        <item index="1" class="java.lang.String" itemvalue="Python.DeviceDB" />
+        <item index="2" class="java.lang.String" itemvalue="Python.execute" />
+        <item index="3" class="java.lang.String" itemvalue="Python.resolve" />
+        <item index="4" class="java.lang.String" itemvalue="Python.testcase" />
       </list>
     </recent_temporary>
   </component>
@@ -547,18 +564,18 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4707317" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19556996" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3804878" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14634146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32560974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4707317" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -579,32 +596,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/Manual.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="14" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/template/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="11" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="638" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testcase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="62" selection-start="4898" selection-end="4898" vertical-scroll-proportion="0.0" vertical-offset="3364" max-vertical-offset="8091">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template/case_detail_content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="35" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="5162">
+        <state line="20" column="0" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="8676">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/AutoTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0" vertical-offset="319" max-vertical-offset="551" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../AutoTest/AutoTest.py">
@@ -614,9 +621,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0" vertical-offset="1972" max-vertical-offset="2146">
-          <folding />
-        </state>
+        <state line="68" column="0" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0" vertical-offset="1972" max-vertical-offset="2146" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Actions.py">
@@ -626,9 +631,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="2129" selection-end="2129" vertical-scroll-proportion="0.0" vertical-offset="2030" max-vertical-offset="6322">
-          <folding />
-        </state>
+        <state line="70" column="0" selection-start="2129" selection-end="2129" vertical-scroll-proportion="0.0" vertical-offset="2030" max-vertical-offset="6322" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template/base.html">
@@ -657,9 +660,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="17" selection-start="2256" selection-end="2256" vertical-scroll-proportion="0.0" vertical-offset="1653" max-vertical-offset="1856">
-          <folding />
-        </state>
+        <state line="57" column="17" selection-start="2256" selection-end="2256" vertical-scroll-proportion="0.0" vertical-offset="1653" max-vertical-offset="1856" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Actions.py">
@@ -669,9 +670,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="4234">
-          <folding />
-        </state>
+        <state line="14" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="4234" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testcase.py">
@@ -695,9 +694,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="17" selection-start="2256" selection-end="2256" vertical-scroll-proportion="0.0" vertical-offset="1653" max-vertical-offset="1856">
-          <folding />
-        </state>
+        <state line="57" column="17" selection-start="2256" selection-end="2256" vertical-scroll-proportion="0.0" vertical-offset="1653" max-vertical-offset="1856" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Actions.py">
@@ -707,9 +704,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="4234">
-          <folding />
-        </state>
+        <state line="14" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="4234" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testcase.py">
@@ -733,9 +728,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="17" selection-start="2256" selection-end="2256" vertical-scroll-proportion="0.0" vertical-offset="1653" max-vertical-offset="1856">
-          <folding />
-        </state>
+        <state line="57" column="17" selection-start="2256" selection-end="2256" vertical-scroll-proportion="0.0" vertical-offset="1653" max-vertical-offset="1856" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Actions.py">
@@ -745,9 +738,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="4234">
-          <folding />
-        </state>
+        <state line="14" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="4234" />
       </provider>
     </entry>
     <entry file="file:///usr/share/pyshared/MySQLdb/connections.py">
@@ -765,19 +756,9 @@
         <state line="9" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="0.37021276" vertical-offset="0" max-vertical-offset="10933" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="11" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="792" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../AutoTest/AutoTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="11" selection-start="1067" selection-end="1075" vertical-scroll-proportion="0.4206099" vertical-offset="528" max-vertical-offset="1479" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/AutoTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="684" />
       </provider>
     </entry>
     <entry file="file:///usr/local/lib/python2.7/dist-packages/jinja2/loaders.py">
@@ -795,112 +776,122 @@
         <state line="35" column="0" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0" vertical-offset="1128" max-vertical-offset="1476" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="286" column="22" selection-start="10072" selection-end="10072" vertical-scroll-proportion="0.0" vertical-offset="10936" max-vertical-offset="14040">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/single.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="18" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1656">
-          <folding />
-        </state>
+        <state line="6" column="18" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1656" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions/Allocation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="4" selection-start="316" selection-end="316" vertical-scroll-proportion="0.22756004" vertical-offset="180" max-vertical-offset="2700">
-          <folding />
-        </state>
+        <state line="10" column="4" selection-start="316" selection-end="316" vertical-scroll-proportion="0.22756004" vertical-offset="180" max-vertical-offset="2700" />
       </provider>
     </entry>
     <entry file="file:///usr/lib/python2.7/posixpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2320" selection-end="2320" vertical-scroll-proportion="0.0" vertical-offset="2005" max-vertical-offset="15120">
-          <folding />
-        </state>
+        <state line="71" column="0" selection-start="2320" selection-end="2320" vertical-scroll-proportion="0.0" vertical-offset="2005" max-vertical-offset="15120" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/check.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3744">
-          <folding />
-        </state>
+        <state line="12" column="5" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3744" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testcase.py">
+    <entry file="file:///usr/lib/python2.7/os.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="39" selection-start="3175" selection-end="3175" vertical-scroll-proportion="0.0" vertical-offset="2556" max-vertical-offset="5796">
-          <folding />
-        </state>
+        <state line="275" column="0" selection-start="9105" selection-end="9105" vertical-scroll-proportion="0.0" vertical-offset="9849" max-vertical-offset="27540" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resolve.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="9" selection-start="1882" selection-end="1882" vertical-scroll-proportion="0.0" vertical-offset="1669" max-vertical-offset="2340" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/pair.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="36" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0" vertical-offset="721" max-vertical-offset="1512" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="18" selection-start="3701" selection-end="3701" vertical-scroll-proportion="0.0" vertical-offset="2916" max-vertical-offset="4176" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/Files.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="8" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="17" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="828" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template/running_cases_content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="791">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/DeviceDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="328" column="0" selection-start="11437" selection-end="11437" vertical-scroll-proportion="0.0" vertical-offset="12384" max-vertical-offset="15192" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/AutoTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="6" selection-start="90" selection-end="90" vertical-scroll-proportion="-2.4" vertical-offset="0" max-vertical-offset="684" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/execute.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="24" selection-start="2415" selection-end="2630" vertical-scroll-proportion="-8.470589" vertical-offset="1980" max-vertical-offset="8784">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template/case_detail_content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="68" selection-start="5069" selection-end="5069" vertical-scroll-proportion="7.2" vertical-offset="5580" max-vertical-offset="9792">
+        <state line="198" column="24" selection-start="7680" selection-end="8752" vertical-scroll-proportion="0.4556962" vertical-offset="7164" max-vertical-offset="8568">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/os.py">
+    <entry file="file://$PROJECT_DIR$/template/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="275" column="0" selection-start="9105" selection-end="9105" vertical-scroll-proportion="0.0" vertical-offset="9849" max-vertical-offset="27540">
+        <state line="11" column="9" selection-start="337" selection-end="337" vertical-scroll-proportion="-8.8" vertical-offset="0" max-vertical-offset="1116">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manual.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="34" selection-start="2820" selection-end="2820" vertical-scroll-proportion="0.0" vertical-offset="2413" max-vertical-offset="3240">
+          <folding>
+            <element signature="e#21#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+        <state line="15" column="0" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="900">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/Files.py">
+    <entry file="file://$PROJECT_DIR$/testcase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="8" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+        <state line="33" column="32" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="5544">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/execute.py">
+    <entry file="file://$PROJECT_DIR$/template/ManualTestPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="4" selection-start="7351" selection-end="7351" vertical-scroll-proportion="0.0" vertical-offset="6228" max-vertical-offset="9216">
+        <state line="26" column="10" selection-start="1052" selection-end="1063" vertical-scroll-proportion="0.56568366" vertical-offset="658" max-vertical-offset="2988">
           <folding>
-            <element signature="e#20#36#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#2;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resolve.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="9" selection-start="1882" selection-end="1882" vertical-scroll-proportion="0.0" vertical-offset="1669" max-vertical-offset="2340">
-          <folding>
-            <element signature="e#20#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/pair.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="42" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0" vertical-offset="721" max-vertical-offset="1512">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="3354" selection-end="3354" vertical-scroll-proportion="0.4096081" vertical-offset="2628" max-vertical-offset="4176">
-          <folding />
         </state>
       </provider>
     </entry>
